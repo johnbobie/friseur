@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>SCHNITTWERK — Salon &amp; Barbier in Berlin-Kreuzberg</title>
-<meta name="description" content="SCHNITTWERK, Salon und Barbier in der Lindenstraße 14, Berlin-Kreuzberg. Schnitt, Farbe, Bart. Termin nach Vereinbarung.">
-<meta name="theme-color" content="#0d0b0a">
-<meta name="color-scheme" content="dark">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230d0b0a'/><path d='M9 8l14 16M23 8L9 24' stroke='%23c9a227' stroke-width='2.6' stroke-linecap='round'/></svg>">
+<title>MAISON LILOU — Damensalon für Haar &amp; Beauty in Berlin-Charlottenburg</title>
+<meta name="description" content="MAISON LILOU, Damensalon in der Bleibtreustraße 27, Berlin-Charlottenburg. Balayage, Schnitt, Pflege, Braut- und Eventstyling. Termin nach Vereinbarung.">
+<meta name="theme-color" content="#fdfaf8">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='9' fill='%23fdf4f1'/><path d='M16 6c4 3 6 6 6 9a6 6 0 01-12 0c0-3 2-6 6-9z' fill='none' stroke='%23b4677a' stroke-width='2'/><circle cx='16' cy='24' r='1.8' fill='%23c9a06a'/></svg>">
 
 <!-- Setzt Zustands-Klassen synchron, damit weder Preloader noch Reveals flackern. -->
 <script>
 (function () {
   var d = document.documentElement, c = ' js';
   try {
-    if (sessionStorage.getItem('sw-seen') === '1') c += ' pre-skip';
-    else sessionStorage.setItem('sw-seen', '1');
+    if (sessionStorage.getItem('ml-seen') === '1') c += ' pre-skip';
+    else sessionStorage.setItem('ml-seen', '1');
   } catch (e) { /* Privater Modus: Preloader läuft, das ist unkritisch. */ }
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) c += ' rm pre-skip';
   d.className += c;
@@ -29,13 +29,24 @@
 -->
 <style>
 :root{
-  /* ---- Farbe ---- */
-  --bg:#0d0b0a; --bg-2:#141110; --bg-3:#1b1714;
-  --ink:#f4efe8; --ink-2:#b6ada2; --ink-3:#8a8075;
-  --gold:#c9a227; --gold-soft:#e2c56a;
-  --line:rgba(244,239,232,.13);
-  /* ---- Typo ---- */
-  --font-display:'Iowan Old Style','Palatino Linotype','Book Antiqua',Palatino,'Times New Roman',Georgia,serif;
+  /* ---- Farbe: warmes Weiß, Roségold, Champagner ---- */
+  --bg:#fdfaf8;
+  --bg-soft:#f8efeb;
+  --bg-tint:#fbf3f0;
+  --card:#ffffff;
+  --ink:#2e2427;
+  --ink-2:#6b585d;
+  --ink-3:#756267;      /* knapp dunkler als optisch nötig — hält 4,5:1 auch auf --bg-soft */
+  --rose:#b4677a;         /* Akzent für Flächen und Große Typo   */
+  --rose-deep:#9c4a5f;    /* Akzent für kleinen Text (Kontrast)  */
+  --rose-pale:#f2dcd9;
+  --gold:#9a7434;         /* Champagner, dunkel genug für Text   */
+  --gold-soft:#d9bd8b;
+  --line:rgba(46,36,39,.13);
+  --line-strong:rgba(46,36,39,.22);
+  --shadow:0 18px 50px -28px rgba(90,52,60,.42);
+  /* ---- Typo: hochkontrastige Didone + ruhige Grotesk ---- */
+  --font-display:'Didot','Bodoni MT','Playfair Display','Hoefler Text','Iowan Old Style',Georgia,'Times New Roman',serif;
   --font-sans:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
   /* ---- Zeit & Kurven: hier zentral schrauben ---- */
   --e-out:cubic-bezier(.16,1,.3,1);
@@ -53,33 +64,36 @@
   --t-micro:340ms;
   /* ---- Ambient-Takte ---- */
   --t-blob-a:34s; --t-blob-b:41s; --t-blob-c:28s;
-  --t-pole:3.4s;
+  --t-petal:26s;
   --t-ken:22s;
-  --t-neon:6.5s;
+  --t-sign:7s;
   --t-pulse:4.2s;
   --t-hint:2.8s;
-  --t-ring:64s;
+  --t-wreath:78s;
+  --t-shimmer:9s;
   /* ---- Maß ---- */
   --header-h:clamp(64px,8vw,96px);
   --pad-x:clamp(1.25rem,5vw,5.5rem);
   --maxw:1280px;
+  --r-card:18px;
+  --r-arch:48% 48% 12px 12px / 32% 32% 2% 2%;
 }
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-sans);
-  font-size:clamp(1rem,.95rem + .25vw,1.125rem);line-height:1.65;
+  font-size:clamp(1rem,.95rem + .25vw,1.115rem);line-height:1.7;
   font-synthesis-weight:none;overflow-x:hidden}
 img,svg{display:block;max-width:100%}
 img{height:auto}
-h1,h2,h3{font-family:var(--font-display);font-weight:400;line-height:1.04;letter-spacing:-.015em;margin:0}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;line-height:1.06;letter-spacing:-.012em;margin:0}
 a{color:inherit}
-:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+:focus-visible{outline:2px solid var(--rose-deep);outline-offset:3px;border-radius:3px}
 
 /* ---------- Preloader ---------- */
-.pre{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--bg)}
-.pre__mark{width:min(280px,58vw)}
+.pre{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--bg-tint)}
+.pre__mark{width:min(260px,56vw);text-align:center}
 .pre__mark svg{width:100%;height:auto}
-.pre__stroke{fill:none;stroke:var(--gold);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;
+.pre__stroke{fill:none;stroke:var(--rose);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;
   stroke-dasharray:var(--len);stroke-dashoffset:var(--len)}
 .pre__word{opacity:0}
 html.is-preloading .pre__stroke{animation:preDraw var(--t-pre-draw) var(--e-io) forwards}
@@ -92,11 +106,11 @@ html.pre-skip .pre,html:not(.js) .pre{display:none}
 html.is-preloading{overflow:hidden}
 
 /* ---------- Header ---------- */
-.skip{position:absolute;left:.75rem;top:.75rem;z-index:120;padding:.7rem 1rem;background:var(--gold);
-  color:#17130a;font-weight:600;border-radius:4px;transform:translate3d(0,-160%,0)}
+.skip{position:absolute;left:.75rem;top:.75rem;z-index:120;padding:.7rem 1rem;background:var(--rose-deep);
+  color:#fff;font-weight:600;border-radius:6px;transform:translate3d(0,-160%,0)}
 .skip:focus{transform:none}
 .header{position:fixed;inset:0 0 auto;z-index:60;height:var(--header-h);pointer-events:none}
-.header__bg{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,11,10,.94),rgba(13,11,10,.72));
+.header__bg{position:absolute;inset:0;background:rgba(253,250,248,.92);
   border-bottom:1px solid transparent;opacity:0;transform:scaleY(1);transform-origin:top;
   transition:opacity var(--t-micro) linear,transform 460ms var(--e-out)}
 .header__inner{position:relative;height:100%;display:flex;align-items:center;justify-content:space-between;
@@ -104,22 +118,26 @@ html.is-preloading{overflow:hidden}
   transition:transform 460ms var(--e-out)}
 .header.is-stuck .header__bg{opacity:1;transform:scaleY(.72);border-bottom-color:var(--line)}
 .header.is-stuck .header__inner{transform:translate3d(0,-12%,0)}
-.header.is-stuck .brand{transform:scale(.88)}
-.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;letter-spacing:.24em;
-  font-size:.8rem;text-transform:uppercase;transform-origin:left center;
-  transition:transform 460ms var(--e-out)}
-.brand svg{width:22px;height:22px;flex:none}
-.progress{position:fixed;inset:0 0 auto;z-index:70;height:2px;background:var(--gold);
+.header.is-stuck .brand{transform:scale(.9)}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;
+  font-family:var(--font-display);font-size:1.06rem;letter-spacing:.22em;text-transform:uppercase;
+  transform-origin:left center;transition:transform 460ms var(--e-out)}
+.brand svg{width:24px;height:24px;flex:none}
+.progress{position:fixed;inset:0 0 auto;z-index:70;height:2px;
+  background:linear-gradient(90deg,var(--rose),var(--gold-soft));
   transform:scaleX(0);transform-origin:0 50%}
 
 /* ---------- Ambient-Hintergrund ---------- */
 .amb-field{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.blob{position:absolute;width:70vmax;height:70vmax;border-radius:50%;opacity:.5}
-.blob--a{top:-26vmax;left:-18vmax;background:radial-gradient(circle at 50% 50%,rgba(201,162,39,.16),rgba(201,162,39,0) 62%);
+.blob{position:absolute;width:72vmax;height:72vmax;border-radius:50%}
+.blob--a{top:-28vmax;left:-20vmax;
+  background:radial-gradient(circle at 50% 50%,rgba(214,150,163,.30),rgba(214,150,163,0) 62%);
   animation:driftA var(--t-blob-a) ease-in-out infinite alternate}
-.blob--b{bottom:-30vmax;right:-22vmax;background:radial-gradient(circle at 50% 50%,rgba(120,88,196,.13),rgba(120,88,196,0) 60%);
+.blob--b{bottom:-32vmax;right:-24vmax;
+  background:radial-gradient(circle at 50% 50%,rgba(217,189,139,.30),rgba(217,189,139,0) 60%);
   animation:driftB var(--t-blob-b) ease-in-out infinite alternate;animation-delay:-9s}
-.blob--c{top:34%;left:38%;width:52vmax;height:52vmax;background:radial-gradient(circle at 50% 50%,rgba(196,84,52,.10),rgba(196,84,52,0) 62%);
+.blob--c{top:36%;left:40%;width:54vmax;height:54vmax;
+  background:radial-gradient(circle at 50% 50%,rgba(198,168,197,.22),rgba(198,168,197,0) 62%);
   animation:driftC var(--t-blob-c) ease-in-out infinite alternate;animation-delay:-17s}
 @keyframes driftA{to{transform:translate3d(9vmax,7vmax,0) scale(1.14)}}
 @keyframes driftB{to{transform:translate3d(-11vmax,-6vmax,0) scale(1.09)}}
@@ -134,9 +152,205 @@ section{position:relative}
 .hero{min-height:100svh;display:flex;align-items:center;
   padding:calc(var(--header-h) + 3rem) 0 clamp(6rem,13vh,9rem)}
 .hero__grid{display:grid;gap:clamp(2rem,5vw,4rem);align-items:center}
-.hero__eyebrow{font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin:0 0 1.4rem}
-.hero__title{font-size:clamp(2.7rem,min(9vw,10.5vh),7rem);margin:0 0 1.5rem}
-.hero__lead{max-width:46ch;color:var(--ink-2);margin:0 0 2.5rem;font-size:clamp(1.02rem,.95rem + .4vw,1.28rem)}
+.hero__eyebrow{font-family:var(--font-display);font-style:italic;font-size:1.12rem;
+  letter-spacing:.02em;color:var(--rose-deep);margin:0 0 1.2rem}
+.hero__title{font-size:clamp(2.7rem,min(9vw,10.5vh),7rem);margin:0 0 1.4rem}
+.hero__lead{max-width:44ch;color:var(--ink-2);margin:0 0 2.4rem;
+  font-size:clamp(1.02rem,.95rem + .35vw,1.2rem)}
+
+
+/* ==========================================================================
+   Ab hier: alles, was oberhalb der Falz Layout bestimmt — Header, Navigation,
+   Buttons, Hero und die dort laufenden Dauerläufer.
+   Das stand zunächst im asynchron geladenen styles.css. Ergebnis: sobald die
+   Datei ankam, sprang der Header (die Navigation ist bis dahin unversteckt),
+   was als Layout-Shift messbar war. Above-the-fold-Regeln sind per Definition
+   kritisch und gehören deshalb hierher.
+   ========================================================================== */
+
+/* ---------- 02 Buttons, Links, Micro-Interactions ----------------------- */
+
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;
+  min-height:46px;padding:.9rem 1.8rem;border:1px solid var(--rose);border-radius:999px;
+  background:transparent;color:var(--rose-deep);font:inherit;font-size:.82rem;
+  letter-spacing:.14em;text-transform:uppercase;text-decoration:none;cursor:pointer;
+  isolation:isolate;transition:color var(--t-micro) var(--e-out)}
+/* Der Fülleffekt läuft über scaleX statt über width/background — reine Compositor-Arbeit. */
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;
+  background:var(--rose-deep);transform:scaleX(0);transform-origin:left center;
+  transition:transform var(--t-micro) var(--e-out)}
+.btn:hover,.btn:focus-visible{color:#fff}
+.btn:hover::before,.btn:focus-visible::before{transform:scaleX(1)}
+.btn--sm{padding:.62rem 1.15rem;font-size:.72rem}
+@media (max-width:520px){.btn--sm{padding:.55rem .85rem;font-size:.64rem;letter-spacing:.1em}}
+.btn--lg{padding:1.1rem 2.4rem}
+/* Gefüllte Variante für den Abschluss-CTA im Formular */
+.btn--solid{background:var(--rose-deep);border-color:var(--rose-deep);color:#fff}
+.btn--solid::before{background:var(--ink)}
+
+/* Atmender Glow-Ring am Haupt-CTA — Ambient #6 */
+.btn--pulse::after{content:"";position:absolute;inset:-1px;z-index:-2;
+  border:1px solid var(--rose);border-radius:999px;opacity:0;transform:scale(1);
+  animation:ctaPulse var(--t-pulse) var(--e-io) infinite}
+@keyframes ctaPulse{
+  0%{opacity:.5;transform:scale(1)}
+  60%{opacity:0;transform:scale(1.1)}
+  100%{opacity:0;transform:scale(1.1)}
+}
+
+/* Underline wischt von links ein */
+.ul{position:relative;text-decoration:none;padding-bottom:2px}
+.ul::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;
+  transform:scaleX(0);transform-origin:left center;
+  transition:transform var(--t-micro) var(--e-out)}
+.ul:hover::after,.ul:focus-visible::after{transform:scaleX(1)}
+
+.link-arrow{display:inline-flex;align-items:center;gap:.55rem;min-height:44px;
+  background:none;border:0;padding:0;font:inherit;color:var(--ink);cursor:pointer;
+  font-size:.9rem}
+.link-arrow::before{content:"→";color:var(--rose-deep);
+  transition:transform var(--t-micro) var(--e-out)}
+.link-arrow:hover::before{transform:translate3d(5px,0,0)}
+
+/* Karten-Tilt: JS setzt --rx/--ry, CSS macht den Rest.
+   Der Reveal derselben Karte läuft über translate, deshalb gibt es hier
+   keinen Konflikt. Während der Zeiger führt, wird die Transition abgeschaltet
+   (sonst hinkt die Karte hinterher); beim Verlassen federt sie zurück.
+   Die Selektoren müssen die Reveal-Regel aus dem kritischen CSS schlagen —
+   gleiche Spezifität, spätere Quelle. */
+.tilt{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));
+  transition:transform 480ms var(--e-out)}
+.tilt.is-tilting,
+html.js [data-reveal].is-tilting{transition:none}
+
+/* Cursor-Glow, nur auf Zeigergeräten */
+.cursor{position:fixed;top:0;left:0;width:360px;height:360px;margin:-180px 0 0 -180px;
+  z-index:2;pointer-events:none;opacity:0;
+  background:radial-gradient(circle at 50% 50%,rgba(180,103,122,.10),rgba(180,103,122,0) 68%);
+  transition:opacity 500ms linear}
+.cursor.is-on{opacity:1}
+
+/* ---------- 03 Header & Navigation -------------------------------------- */
+
+.nav{display:none}
+.nav ul{display:flex;gap:clamp(1.2rem,2.4vw,2.4rem);list-style:none;margin:0;padding:0;
+  font-size:.85rem;letter-spacing:.04em;color:var(--ink-2)}
+.nav a{text-decoration:none;transition:color var(--t-micro) linear}
+.nav a:hover{color:var(--rose-deep)}
+@media (min-width:900px){.nav{display:block}}
+
+.brand{color:var(--ink)}
+.brand--lg{font-size:1.15rem}
+.brand--lg svg{width:28px;height:28px}
+
+/* ---------- 04 Hero ------------------------------------------------------ */
+
+.hero__actions{display:flex;flex-wrap:wrap;align-items:center;gap:1.6rem}
+
+/* Flache Fenster (720p-Laptops, kleine Handys): Hero zusammenrücken,
+   damit Titel, Text und CTA gemeinsam über der Falz bleiben. */
+@media (max-height:760px){
+  .hero{padding-top:calc(var(--header-h) + 1.25rem);padding-bottom:clamp(2rem,6vh,3.5rem)}
+  .hero__eyebrow{margin-bottom:.55rem;font-size:.97rem}
+  .hero__title{margin-bottom:.8rem}
+  .hero__lead{margin-bottom:1.25rem;font-size:1rem}
+  .hero__actions{gap:1rem}
+}
+
+.hero__art{position:relative;display:none}
+@media (min-width:1000px){
+  .hero__grid{grid-template-columns:1.1fr .9fr}
+  .hero__art{display:block}
+}
+
+/* Bogenform statt Rechteck — die Grundform des Salons zieht sich durch
+   Spiegel, Porträts und Lookbook. */
+.tile{position:relative;margin:0;overflow:hidden;border-radius:var(--r-card);
+  background:var(--bg-soft);box-shadow:var(--shadow)}
+.tile--arch{border-radius:var(--r-arch)}
+.tile img{width:100%;height:auto}
+.tile--hero{max-width:355px;margin-inline:auto}
+.tile--sq{aspect-ratio:1/1}
+.tile--sq img{height:100%;object-fit:cover}
+
+/* Blütenkranz hinter dem Hero-Bild — Ambient #7 */
+.wreath{position:absolute;top:50%;left:50%;width:min(100%,520px);aspect-ratio:1/1;
+  translate:-50% -50%;animation:wreathSpin var(--t-wreath) linear infinite}
+.wreath svg{width:100%;height:100%}
+@keyframes wreathSpin{to{transform:rotate(360deg)}}
+
+/* Glanzstreifen über dem Haar — Ambient #10 */
+.shimmer{position:absolute;top:-20%;left:-60%;width:45%;height:140%;pointer-events:none;
+  background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.72),rgba(255,255,255,0));
+  transform:translate3d(0,0,0) rotate(8deg);
+  animation:shimmerSweep var(--t-shimmer) var(--e-io) infinite}
+@keyframes shimmerSweep{
+  0%{transform:translate3d(0,0,0) rotate(8deg)}
+  38%{transform:translate3d(420%,0,0) rotate(8deg)}
+  100%{transform:translate3d(420%,0,0) rotate(8deg)}
+}
+
+/* „Heute geöffnet" — Ambient #4, ruhiges Ein- und Ausatmen statt Neon */
+.sign{position:absolute;right:-14px;bottom:44px;display:flex;align-items:center;gap:.55rem;
+  padding:.6rem 1.05rem;border-radius:999px;background:#fff;box-shadow:var(--shadow);
+  animation:signBreathe var(--t-sign) var(--e-io) infinite}
+.sign__dot{width:8px;height:8px;border-radius:50%;background:#6b9c6f;flex:none}
+.sign__txt{font-size:.76rem;letter-spacing:.06em;color:var(--ink-2);white-space:nowrap}
+@keyframes signBreathe{
+  0%,100%{transform:translate3d(0,0,0)}
+  50%{transform:translate3d(0,-6px,0)}
+}
+
+/* Scroll-Hinweis — Ambient #8, inkl. Idle-Nudge */
+.hint{position:absolute;left:50%;bottom:clamp(1.5rem,4vh,3rem);translate:-50% 0;
+  display:flex;flex-direction:column;align-items:center;gap:.7rem;
+  text-decoration:none;color:var(--ink-3);padding:.5rem 1rem}
+.hint__label{font-family:var(--font-display);font-style:italic;font-size:.9rem;
+  transition:color var(--t-micro) linear}
+.hint__line{display:block;width:1px;height:56px;
+  background:linear-gradient(180deg,var(--rose),rgba(180,103,122,0));
+  transform-origin:top center;animation:hintDrift var(--t-hint) var(--e-io) infinite alternate}
+@keyframes hintDrift{from{transform:translate3d(0,-6px,0) scaleY(.72);opacity:.5}
+  to{transform:translate3d(0,6px,0) scaleY(1);opacity:1}}
+/* Nach 8 s ohne Eingabe wird derselbe Impuls kurz kräftiger. */
+.hint.is-nudge .hint__line{animation:hintNudge 1.15s var(--e-out) 3}
+.hint.is-nudge .hint__label{color:var(--rose-deep)}
+@keyframes hintNudge{
+  0%{transform:translate3d(0,-8px,0) scaleY(.6);opacity:.4}
+  45%{transform:translate3d(0,10px,0) scaleY(1.16);opacity:1}
+  100%{transform:translate3d(0,-8px,0) scaleY(.6);opacity:.4}
+}
+/* Auf sehr flachen Fenstern ist im Hero kein Platz für den Hinweis. */
+@media (max-height:700px){.hint{display:none}}
+
+/* Ambient #2 — schwebende Blütenblätter. Fünf Stück, alle mit eigener
+   Dauer und negativer Verzögerung, damit sich nichts synchronisiert. */
+.petal{position:absolute;width:16px;height:16px;
+  border-radius:100% 0 100% 0;background:rgba(198,124,140,.34)}
+.petal--1{top:-4%;left:12%;animation:petalFall var(--t-petal) linear infinite;animation-delay:-3s}
+.petal--2{top:-6%;left:38%;width:12px;height:12px;background:rgba(217,189,139,.38);
+  animation:petalFall calc(var(--t-petal) + 9s) linear infinite;animation-delay:-14s}
+.petal--3{top:-5%;left:63%;width:20px;height:20px;background:rgba(198,124,140,.24);
+  animation:petalFall calc(var(--t-petal) + 5s) linear infinite;animation-delay:-21s}
+.petal--4{top:-4%;left:82%;width:13px;height:13px;background:rgba(198,168,197,.34);
+  animation:petalFall calc(var(--t-petal) + 13s) linear infinite;animation-delay:-8s}
+.petal--5{top:-6%;left:26%;width:10px;height:10px;background:rgba(217,189,139,.30);
+  animation:petalFall calc(var(--t-petal) + 17s) linear infinite;animation-delay:-30s}
+@keyframes petalFall{
+  0%{transform:translate3d(0,0,0) rotate(0deg);opacity:0}
+  8%{opacity:1}
+  50%{transform:translate3d(7vw,55vh,0) rotate(200deg)}
+  92%{opacity:1}
+  100%{transform:translate3d(-3vw,115vh,0) rotate(420deg);opacity:0}
+}
+
+/* Ambient #3 — minimaler Zoom/Pan, alternierend, 22 s */
+.ken{animation:ken var(--t-ken) var(--e-io) infinite alternate}
+.ken--alt{animation-name:kenAlt;animation-duration:calc(var(--t-ken) + 6s);animation-delay:-7s}
+@keyframes ken{from{transform:scale(1.02) translate3d(-.6%,.4%,0)}
+  to{transform:scale(1.09) translate3d(1%,-1%,0)}}
+@keyframes kenAlt{from{transform:scale(1.08) translate3d(1.2%,-.6%,0)}
+  to{transform:scale(1.02) translate3d(-.8%,.8%,0)}}
 
 /* ---------- Ausgangszustände der Reveals ----------
    Der Reveal benutzt die eigenständige translate-Property statt transform.
@@ -181,20 +395,18 @@ html.rm [data-split] .wi{transform:none}
 <!-- ========== 1. Preloader ========== -->
 <div class="pre" id="pre" aria-hidden="true">
   <div class="pre__mark">
-    <svg viewBox="0 0 240 96" width="240" height="96" role="img" aria-label="SCHNITTWERK">
+    <svg viewBox="0 0 240 120" width="240" height="120" role="img" aria-label="MAISON LILOU">
       <!-- pathLength="1" normalisiert jede Länge, damit alle Teile gleich
            schnell zeichnen — unabhängig von ihrer tatsächlichen Länge. -->
       <g class="pre__stroke" style="--len:1">
-        <path d="M60 20 L180 76" pathLength="1"/>
-        <path d="M180 20 L60 76" pathLength="1"/>
-        <circle cx="46" cy="14" r="11" pathLength="1"/>
-        <circle cx="46" cy="82" r="11" pathLength="1"/>
-        <circle cx="194" cy="14" r="11" pathLength="1"/>
-        <circle cx="194" cy="82" r="11" pathLength="1"/>
+        <path d="M120 22c17 14 26 26 26 37a26 26 0 01-52 0c0-11 9-23 26-37z" pathLength="1"/>
+        <path d="M120 96c-26 0-44-11-52-26" pathLength="1"/>
+        <path d="M120 96c26 0 44-11 52-26" pathLength="1"/>
+        <circle cx="120" cy="96" r="4" pathLength="1"/>
       </g>
-      <text class="pre__word" x="120" y="94" text-anchor="middle"
-            font-family="ui-sans-serif,system-ui,sans-serif" font-size="9"
-            letter-spacing="6.5" fill="#8a8075">SCHNITTWERK</text>
+      <text class="pre__word" x="120" y="116" text-anchor="middle"
+            font-family="ui-sans-serif,system-ui,sans-serif" font-size="8.5"
+            letter-spacing="6" fill="#7d6a6f">MAISON LILOU</text>
     </svg>
   </div>
 </div>
@@ -204,6 +416,12 @@ html.rm [data-split] .wi{transform:none}
   <div class="blob blob--a amb"></div>
   <div class="blob blob--b amb"></div>
   <div class="blob blob--c amb"></div>
+  <!-- Schwebende Blütenblätter — Ambient #2 -->
+  <span class="petal petal--1 amb"></span>
+  <span class="petal petal--2 amb"></span>
+  <span class="petal petal--3 amb"></span>
+  <span class="petal petal--4 amb"></span>
+  <span class="petal petal--5 amb"></span>
 </div>
 
 <div class="progress" id="progress" aria-hidden="true"></div>
@@ -213,14 +431,17 @@ html.rm [data-split] .wi{transform:none}
   <div class="header__bg"></div>
   <div class="header__inner">
     <a class="brand" href="#top">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 7l16 18M24 7L8 25" stroke="#c9a227" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg>
-      <span>Schnittwerk</span>
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M16 5c4.5 3.4 7 7 7 10.4a7 7 0 01-14 0C9 12 11.5 8.4 16 5z" fill="none" stroke="#b4677a" stroke-width="1.8"/>
+        <circle cx="16" cy="25" r="2" fill="#c9a06a"/>
+      </svg>
+      <span>Maison Lilou</span>
     </a>
     <nav class="nav" aria-label="Hauptnavigation">
       <ul>
         <li><a class="ul" href="#leistungen">Leistungen</a></li>
         <li><a class="ul" href="#team">Team</a></li>
-        <li><a class="ul" href="#lookbook">Lookbook</a></li>
+        <li><a class="ul" href="#lookbook">Looks</a></li>
         <li><a class="ul" href="#zeiten">Öffnungszeiten</a></li>
       </ul>
     </nav>
@@ -234,11 +455,11 @@ html.rm [data-split] .wi{transform:none}
   <section class="hero" id="top">
     <div class="wrap hero__grid">
       <div class="hero__copy">
-        <p class="hero__eyebrow" data-reveal>Salon &amp; Barbier · Berlin-Kreuzberg</p>
-        <h1 class="hero__title" data-split>Handwerk. Haltung. Haar.</h1>
+        <p class="hero__eyebrow" data-reveal>Damensalon für Haar &amp; Beauty · Berlin-Charlottenburg</p>
+        <h1 class="hero__title" data-split>Zeit, die Ihnen gehört.</h1>
         <p class="hero__lead" data-reveal style="--d:140ms">
-          Seit 2014 schneiden wir Haare so, wie sie fallen — nicht, wie ein Katalog
-          es vorschreibt. Kein Dudelfunk, kein Verkaufsgespräch, keine Eile.
+          Farbe, Schnitt und Pflege in Ruhe — mit einem Glas Prosecco, ehrlicher
+          Beratung und einem Ergebnis, das auch am nächsten Morgen noch sitzt.
         </p>
         <div class="hero__actions" data-reveal style="--d:240ms">
           <a class="btn btn--lg btn--pulse mag" href="#termin">Termin buchen</a>
@@ -247,13 +468,32 @@ html.rm [data-split] .wi{transform:none}
       </div>
 
       <div class="hero__art" data-reveal style="--d:300ms" aria-hidden="true">
-        <span class="ring amb"></span>
-        <span class="pole amb" aria-hidden="true"><span class="pole__track"></span></span>
-        <figure class="tile tile--hero">
+        <span class="wreath amb">
+          <svg viewBox="0 0 200 200" width="200" height="200">
+            <g fill="none" stroke="#c9a06a" stroke-width="1" opacity=".55">
+              <circle cx="100" cy="100" r="94"/>
+              <g stroke-width="1.1">
+                <path d="M100 6c6 7 6 15 0 22-6-7-6-15 0-22z"/>
+                <path d="M194 100c-7 6-15 6-22 0 7-6 15-6 22 0z"/>
+                <path d="M100 194c-6-7-6-15 0-22 6 7 6 15 0 22z"/>
+                <path d="M6 100c7-6 15-6 22 0-7 6-15 6-22 0z"/>
+                <path d="M166 34c-1 9-7 15-16 16 1-9 7-15 16-16z"/>
+                <path d="M34 166c1-9 7-15 16-16-1 9-7 15-16 16z"/>
+                <path d="M166 166c-9-1-15-7-16-16 9 1 15 7 16 16z"/>
+                <path d="M34 34c9 1 15 7 16 16-9-1-15-7-16-16z"/>
+              </g>
+            </g>
+          </svg>
+        </span>
+        <figure class="tile tile--arch tile--hero">
           <img class="ken amb" width="640" height="800" decoding="async" alt=""
-               src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 800'><rect width='640' height='800' fill='%23161311'/><path d='M0 800V300a320 320 0 01640 0v500z' fill='%231d1915'/><g fill='none' stroke='%23c9a227' stroke-width='2.4' opacity='.62'><path d='M120 800V320a200 200 0 01400 0v480'/><path d='M196 800V352a124 124 0 01248 0v448'/><path d='M320 236v-96'/></g><g fill='none' stroke='%23f4efe8' stroke-opacity='.22' stroke-width='1.6'><path d='M244 470c26 44 126 44 152 0'/><path d='M232 402h48M360 402h48'/></g><circle cx='320' cy='140' r='16' fill='%23c9a227' opacity='.8'/></svg>">
+               src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 800'><defs><linearGradient id='h' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='800'><stop offset='0' stop-color='%23fdf3f0'/><stop offset='1' stop-color='%23f0d6d3'/></linearGradient><linearGradient id='hair' gradientUnits='userSpaceOnUse' x1='320' y1='140' x2='320' y2='790'><stop offset='0' stop-color='%23c9848f'/><stop offset='1' stop-color='%23e6bfa4'/></linearGradient></defs><rect width='640' height='800' fill='url(%23h)'/><path d='M320 138c-118 0-152 100-146 208 6 130-14 292 2 444h288c16-152-4-314 2-444 6-108-28-208-146-208z' fill='url(%23hair)' opacity='.72'/><ellipse cx='320' cy='322' rx='84' ry='104' fill='%23fdf6f2'/><ellipse cx='320' cy='322' rx='84' ry='104' fill='none' stroke='%23b4677a' stroke-width='3'/><g fill='none' stroke='%23a4586a' stroke-width='3.4' stroke-linecap='round' opacity='.85'><path d='M242 236c-26 92-30 190-18 292'/><path d='M398 236c26 92 30 190 18 292'/><path d='M320 138c-70 8-104 52-110 108'/><path d='M320 138c70 8 104 52 110 108'/></g><g fill='none' stroke='%23a4586a' stroke-width='2.4' stroke-linecap='round' opacity='.45'><path d='M206 420c-8 116-10 234-2 350'/><path d='M254 470c-8 106-8 214-2 300'/><path d='M434 420c8 116 10 234 2 350'/><path d='M386 470c8 106 8 214 2 300'/></g><g fill='none' stroke='%233a2b2f' stroke-opacity='.62' stroke-width='3' stroke-linecap='round'><path d='M280 306h26M334 306h26'/><path d='M276 282c10-8 22-8 32-2M332 280c10-6 22-6 32 2'/><path d='M302 366c12 12 24 12 36 0'/></g><g stroke='%23b8893f' stroke-width='2' fill='none'><circle cx='446' cy='250' r='13'/><circle cx='424' cy='268' r='9'/><circle cx='462' cy='274' r='8'/><circle cx='446' cy='250' r='4' fill='%23c9a06a' stroke='none'/></g></svg>">
+          <span class="shimmer amb" aria-hidden="true"></span>
         </figure>
-        <span class="neon amb"><span class="neon__txt">OPEN</span></span>
+        <span class="sign amb">
+          <span class="sign__dot"></span>
+          <span class="sign__txt">Heute geöffnet</span>
+        </span>
       </div>
     </div>
 
@@ -264,42 +504,42 @@ html.rm [data-split] .wi{transform:none}
   </section>
 
   <!-- ========== 3. Über uns ========== -->
-  <section class="sec" id="ueber">
+  <section class="sec sec--tint" id="ueber">
     <div class="wrap about">
       <div class="about__media" data-parallax="0.08">
-        <figure class="tile" data-reveal>
+        <figure class="tile tile--arch" data-reveal>
           <img class="ken ken--alt amb" width="640" height="800" loading="lazy" decoding="async"
-               alt="Illustration des Salonraums: Altbaufenster, Werkbank und Stuhl in Umrisslinien."
-               src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 800'><rect width='640' height='800' fill='%23161311'/><rect x='64' y='72' width='232' height='340' rx='116' fill='none' stroke='%23c9a227' stroke-width='2.4' opacity='.6'/><path d='M180 72v340M64 242h232' stroke='%23c9a227' stroke-width='1.4' opacity='.35'/><rect x='352' y='188' width='224' height='224' fill='%231f1a16'/><path d='M352 412h224' stroke='%23f4efe8' stroke-opacity='.2' stroke-width='2'/><g fill='none' stroke='%23f4efe8' stroke-opacity='.28' stroke-width='2.2'><path d='M104 700v-96a72 72 0 01144 0v96'/><path d='M104 700h144M132 700v52M220 700v52'/><path d='M392 604h160M400 604v96M544 604v96'/></g><circle cx='470' cy='300' r='54' fill='none' stroke='%23c9a227' stroke-width='2' opacity='.5'/></svg>">
+               alt="Illustration des Salons: Bogenspiegel, Frisierstuhl, Pflanze und Blumenvase in feinen Linien."
+               src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 800'><rect width='640' height='800' fill='%23fbf3f0'/><rect x='72' y='92' width='226' height='330' rx='113' fill='none' stroke='%23b4677a' stroke-width='2.2' opacity='.7'/><rect x='96' y='116' width='178' height='282' rx='89' fill='%23f7e6e2'/><g fill='none' stroke='%23c9a06a' stroke-width='1.4' opacity='.7'><path d='M366 150v120M330 190c14-22 36-22 50 0M402 190c-14-22-36-22-50 0'/><circle cx='366' cy='150' r='16'/><path d='M340 270h52l-8 60h-36z'/></g><g fill='none' stroke='%232e2427' stroke-opacity='.32' stroke-width='2.2'><path d='M150 700v-92a68 68 0 01136 0v92'/><path d='M150 700h136M186 700v58M250 700v58M218 758h-64M218 758h64'/></g><g fill='none' stroke='%23b4677a' stroke-width='2' opacity='.6'><path d='M448 700V560M448 620c-30-8-44-30-42-58 28 2 46 22 42 58zM448 596c30-8 44-30 42-58-28 2-46 22-42 58z'/></g><path d='M96 470h448' stroke='%232e2427' stroke-opacity='.14' stroke-width='2'/></svg>">
         </figure>
       </div>
 
       <div class="about__copy">
         <p class="eyebrow" data-reveal>Über uns</p>
-        <h2 class="h2" data-split>Ein Handwerk, kein Durchlauf.</h2>
+        <h2 class="h2" data-split>Ein Nachmittag, der Ihnen guttut.</h2>
         <p data-reveal style="--d:120ms">
-          SCHNITTWERK sitzt seit elf Jahren im Erdgeschoss eines Kreuzberger Altbaus.
-          Vier Stühle, eine Werkbank aus alter Eiche, Tageslicht von der Straßenseite.
-          Wir arbeiten mit Terminen, damit niemand wartet und niemand hetzt.
+          MAISON LILOU liegt seit 2011 in einem Altbau in der Bleibtreustraße.
+          Sechs Plätze, viel Tageslicht, Marmor und Rosenholz — und leise Musik,
+          bei der man sich noch unterhalten kann.
         </p>
         <p data-reveal style="--d:200ms">
-          Jeder Schnitt beginnt am trockenen Haar: erst sehen, wie es wirklich fällt,
-          dann entscheiden. Wir verkaufen keine Produkte, die Sie nicht brauchen,
-          und schlagen nichts vor, das nach vier Wochen nicht mehr funktioniert.
+          Jeder Termin beginnt mit einer Beratung am trockenen Haar und einem
+          Getränk. Wir nehmen uns die Zeit, die Ihr Haar braucht, und sagen
+          Ihnen ehrlich, wenn ein Wunsch Ihrem Haar nicht guttun würde.
         </p>
 
         <dl class="stats" data-stagger>
           <div class="stat" data-reveal>
-            <dt class="stat__k"><span data-count="2014" data-format="plain">2014</span></dt>
-            <dd class="stat__v">Gegründet</dd>
+            <dt class="stat__k"><span data-count="2011" data-format="plain">2011</span></dt>
+            <dd class="stat__v">Eröffnet</dd>
           </div>
           <div class="stat" data-reveal>
-            <dt class="stat__k"><span data-count="12000">12.000</span></dt>
-            <dd class="stat__v">Schnitte</dd>
+            <dt class="stat__k"><span data-count="18000">18.000</span></dt>
+            <dd class="stat__v">Termine</dd>
           </div>
           <div class="stat" data-reveal>
-            <dt class="stat__k"><span data-count="4">4</span></dt>
-            <dd class="stat__v">Hände am Stuhl</dd>
+            <dt class="stat__k"><span data-count="6" data-format="plain">6</span></dt>
+            <dd class="stat__v">Stylistinnen</dd>
           </div>
         </dl>
       </div>
@@ -309,129 +549,164 @@ html.rm [data-split] .wi{transform:none}
   <!-- ========== 4. Leistungen & Preise ========== -->
   <section class="sec cv" id="leistungen">
     <div class="wrap">
-      <header class="sec__head">
+      <header class="sec__head sec__head--center">
         <p class="eyebrow" data-reveal>Leistungen</p>
-        <h2 class="h2" data-split>Preise, die keine Sternchen brauchen.</h2>
+        <h2 class="h2" data-split>Preise ohne Sternchen.</h2>
         <p class="sec__lead" data-reveal style="--d:120ms">
-          Alle Zeiten sind reine Stuhlzeit inklusive Beratung. Farbleistungen
-          kalkulieren wir nach Haarlänge, der genannte Preis ist der Startpunkt.
+          Alle Zeiten sind reine Stuhlzeit inklusive Beratung, Pflege und Styling.
+          Farbleistungen kalkulieren wir nach Haarlänge und Fülle — der genannte
+          Preis ist der Startpunkt, den endgültigen nennen wir vor dem ersten Pinselstrich.
         </p>
       </header>
 
       <div class="cards" data-stagger>
 
         <article class="card tilt" data-reveal>
-          <h3 class="card__title">Damen</h3>
+          <h3 class="card__title">Schnitt &amp; Styling</h3>
           <ul class="price">
-            <li><span class="price__n">Schnitt &amp; Styling</span><span class="price__d">60 Min</span><span class="price__p">68 €</span></li>
-            <li><span class="price__n">Waschen, Schneiden, Föhnen</span><span class="price__d">75 Min</span><span class="price__p">82 €</span></li>
-            <li><span class="price__n">Trockenschnitt Locke</span><span class="price__d">60 Min</span><span class="price__p">74 €</span></li>
-            <li><span class="price__n">Pony-Korrektur</span><span class="price__d">15 Min</span><span class="price__p">15 €</span></li>
+            <li><span class="price__n">Waschen, Schneiden, Föhnen</span><span class="price__d">90 Min</span><span class="price__p">89 €</span></li>
+            <li><span class="price__n">Trockenschnitt</span><span class="price__d">60 Min</span><span class="price__p">72 €</span></li>
+            <li><span class="price__n">Locken-Schnitt</span><span class="price__d">75 Min</span><span class="price__p">82 €</span></li>
+            <li><span class="price__n">Föhnstyling &amp; Wellen</span><span class="price__d">45 Min</span><span class="price__p">45 €</span></li>
+            <li><span class="price__n">Pony-Korrektur</span><span class="price__d">15 Min</span><span class="price__p">18 €</span></li>
           </ul>
         </article>
 
-        <article class="card tilt" data-reveal>
-          <h3 class="card__title">Herren</h3>
-          <ul class="price">
-            <li><span class="price__n">Herrenschnitt</span><span class="price__d">45 Min</span><span class="price__p">48 €</span></li>
-            <li><span class="price__n">Maschinenschnitt</span><span class="price__d">30 Min</span><span class="price__p">34 €</span></li>
-            <li><span class="price__n">Schnitt &amp; Bart</span><span class="price__d">70 Min</span><span class="price__p">72 €</span></li>
-            <li><span class="price__n">Kinderschnitt bis 12</span><span class="price__d">30 Min</span><span class="price__p">28 €</span></li>
-          </ul>
-        </article>
-
-        <article class="card tilt" data-reveal>
-          <h3 class="card__title">Bart</h3>
-          <ul class="price">
-            <li><span class="price__n">Bartschnitt</span><span class="price__d">30 Min</span><span class="price__p">29 €</span></li>
-            <li><span class="price__n">Rasur mit heißem Tuch</span><span class="price__d">45 Min</span><span class="price__p">42 €</span></li>
-            <li><span class="price__n">Konturen nachziehen</span><span class="price__d">15 Min</span><span class="price__p">16 €</span></li>
-          </ul>
-        </article>
-
-        <article class="card tilt" data-reveal>
+        <article class="card card--feature tilt" data-reveal>
+          <p class="card__flag">Am häufigsten gebucht</p>
           <h3 class="card__title">Farbe</h3>
           <ul class="price">
-            <li><span class="price__n">Ansatzfarbe</span><span class="price__d">90 Min</span><span class="price__p">79 €</span></li>
-            <li><span class="price__n">Balayage</span><span class="price__d">180 Min</span><span class="price__p">ab 189 €</span></li>
-            <li><span class="price__n">Strähnen in Folie</span><span class="price__d">120 Min</span><span class="price__p">ab 129 €</span></li>
-            <li><span class="price__n">Grauabdeckung Herren</span><span class="price__d">45 Min</span><span class="price__p">39 €</span></li>
+            <li><span class="price__n">Balayage inklusive Schnitt</span><span class="price__d">210 Min</span><span class="price__p">ab 259 €</span></li>
+            <li><span class="price__n">Foliensträhnen</span><span class="price__d">150 Min</span><span class="price__p">ab 179 €</span></li>
+            <li><span class="price__n">Ansatzfarbe</span><span class="price__d">90 Min</span><span class="price__p">89 €</span></li>
+            <li><span class="price__n">Glossing zur Auffrischung</span><span class="price__d">45 Min</span><span class="price__p">49 €</span></li>
+            <li><span class="price__n">Farbkorrektur</span><span class="price__d">nach Beratung</span><span class="price__p">ab 189 €</span></li>
           </ul>
         </article>
 
         <article class="card tilt" data-reveal>
-          <h3 class="card__title">Extras</h3>
+          <h3 class="card__title">Pflege &amp; Rituale</h3>
           <ul class="price">
-            <li><span class="price__n">Kopfmassage</span><span class="price__d">15 Min</span><span class="price__p">18 €</span></li>
-            <li><span class="price__n">Intensivkur</span><span class="price__d">20 Min</span><span class="price__p">24 €</span></li>
-            <li><span class="price__n">Aufbau-Treatment</span><span class="price__d">30 Min</span><span class="price__p">36 €</span></li>
-            <li><span class="price__n">Typberatung ohne Schnitt</span><span class="price__d">30 Min</span><span class="price__p">30 €</span></li>
+            <li><span class="price__n">Bindungskur zur Farbe</span><span class="price__d">20 Min</span><span class="price__p">29 €</span></li>
+            <li><span class="price__n">Intensivkur mit Kopfmassage</span><span class="price__d">30 Min</span><span class="price__p">39 €</span></li>
+            <li><span class="price__n">Kopfhaut-Ritual</span><span class="price__d">40 Min</span><span class="price__p">54 €</span></li>
+            <li><span class="price__n">Keratin-Glättung</span><span class="price__d">180 Min</span><span class="price__p">ab 249 €</span></li>
           </ul>
         </article>
 
-        <article class="card card--note tilt" data-reveal>
-          <h3 class="card__title">Gut zu wissen</h3>
-          <p>Zahlung per Karte oder bar. Absagen bitte bis 24 Stunden vorher — danach
-             berechnen wir die Hälfte der Leistung.</p>
-          <p>Auszubildende und Studierende erhalten dienstags 15 % auf Schnitte.</p>
+        <article class="card tilt" data-reveal>
+          <h3 class="card__title">Braut &amp; Anlass</h3>
+          <ul class="price">
+            <li><span class="price__n">Probestyling mit Fotos</span><span class="price__d">90 Min</span><span class="price__p">95 €</span></li>
+            <li><span class="price__n">Brautstyling am großen Tag</span><span class="price__d">120 Min</span><span class="price__p">189 €</span></li>
+            <li><span class="price__n">Hochsteckfrisur</span><span class="price__d">75 Min</span><span class="price__p">89 €</span></li>
+            <li><span class="price__n">Braut-Make-up</span><span class="price__d">60 Min</span><span class="price__p">95 €</span></li>
+          </ul>
+        </article>
+
+        <article class="card tilt" data-reveal>
+          <h3 class="card__title">Extensions</h3>
+          <ul class="price">
+            <li><span class="price__n">Beratung &amp; Farbabgleich</span><span class="price__d">30 Min</span><span class="price__p">kostenfrei</span></li>
+            <li><span class="price__n">Tape-In-Extensions</span><span class="price__d">ab 150 Min</span><span class="price__p">ab 390 €</span></li>
+            <li><span class="price__n">Bonding-Extensions</span><span class="price__d">ab 240 Min</span><span class="price__p">ab 590 €</span></li>
+            <li><span class="price__n">Auffüllen &amp; Umsetzen</span><span class="price__d">120 Min</span><span class="price__p">ab 149 €</span></li>
+          </ul>
+        </article>
+
+        <article class="card tilt" data-reveal>
+          <h3 class="card__title">Beauty-Extras</h3>
+          <ul class="price">
+            <li><span class="price__n">Augenbrauen in Form</span><span class="price__d">20 Min</span><span class="price__p">24 €</span></li>
+            <li><span class="price__n">Augenbrauen färben</span><span class="price__d">15 Min</span><span class="price__p">18 €</span></li>
+            <li><span class="price__n">Wimpernlifting</span><span class="price__d">60 Min</span><span class="price__p">69 €</span></li>
+            <li><span class="price__n">Make-up für den Abend</span><span class="price__d">45 Min</span><span class="price__p">75 €</span></li>
+          </ul>
         </article>
 
       </div>
+
+      <p class="note" data-reveal>
+        Zahlung per Karte oder bar · Absagen bitte bis 24 Stunden vorher ·
+        Dienstags 15 % für Studentinnen und Auszubildende
+      </p>
     </div>
   </section>
 
   <!-- ========== 5. Team ========== -->
-  <section class="sec cv" id="team">
+  <section class="sec sec--tint cv" id="team">
     <div class="wrap">
-      <header class="sec__head">
-        <p class="eyebrow" data-reveal>Team</p>
-        <h2 class="h2" data-split>Vier Handschriften.</h2>
+      <header class="sec__head sec__head--center">
+        <p class="eyebrow" data-reveal>Unser Team</p>
+        <h2 class="h2" data-split>Sechs Handschriften.</h2>
       </header>
 
       <div class="team" data-stagger>
 
         <article class="person tilt" data-reveal>
-          <figure class="tile tile--sq">
+          <figure class="tile tile--arch tile--sq">
             <img class="ken amb" width="600" height="600" loading="lazy" decoding="async"
-                 alt="Abstraktes Porträt mit Lockenkontur."
-                 src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'><rect width='600' height='600' fill='%23161311'/><circle cx='300' cy='300' r='232' fill='%231e1a16'/><g fill='none' stroke='%23c9a227' stroke-width='3' opacity='.72'><circle cx='300' cy='268' r='94'/><circle cx='222' cy='230' r='38'/><circle cx='378' cy='230' r='38'/><circle cx='194' cy='300' r='30'/><circle cx='406' cy='300' r='30'/><circle cx='240' cy='168' r='26'/><circle cx='360' cy='168' r='26'/></g><path d='M186 476c22-74 62-112 114-112s92 38 114 112' fill='none' stroke='%23f4efe8' stroke-opacity='.3' stroke-width='2.6'/></svg>">
+                 alt="Illustriertes Porträt mit langen, welligen Haaren."
+                 src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'><defs><linearGradient id='g' gradientUnits='userSpaceOnUse' x1='300' y1='110' x2='300' y2='600'><stop offset='0' stop-color='%23c9848f'/><stop offset='1' stop-color='%23e6bfa4'/></linearGradient></defs><rect width='600' height='600' fill='%23f9e9e6'/><path d='M300 118c-104 0-134 86-128 180 6 116-10 216 2 302h252c12-86-4-186 2-302 6-94-24-180-128-180z' fill='url(%23g)' opacity='.78'/><g fill='none' stroke='%23a4586a' stroke-width='3.2' stroke-linecap='round' opacity='.8'><path d='M232 214c-24 84-28 176-18 272'/><path d='M368 214c24 84 28 176 18 272'/></g><g fill='none' stroke='%23a4586a' stroke-width='2.6' stroke-linecap='round' opacity='.5'><path d='M196 366c-8 92-8 156-2 234'/><path d='M404 366c8 92 8 156 2 234'/><path d='M240 430c-8 72-8 116-4 170'/><path d='M360 430c8 72 8 116 4 170'/></g><ellipse cx='300' cy='302' rx='72' ry='88' fill='%23fdf6f2'/><ellipse cx='300' cy='302' rx='72' ry='88' fill='none' stroke='%23b4677a' stroke-width='3'/><g stroke='%23b8893f' stroke-width='2' fill='none'><circle cx='412' cy='232' r='12'/><circle cx='392' cy='250' r='8'/><circle cx='428' cy='254' r='7'/><circle cx='412' cy='232' r='3.5' fill='%23c9a06a' stroke='none'/></g><g fill='none' stroke='%233a2b2f' stroke-opacity='.6' stroke-width='2.8' stroke-linecap='round'><path d='M266 292h22M312 292h22'/><path d='M263 272c8-6 18-6 26-1M311 271c8-5 18-5 26 1'/><path d='M284 344c10 10 22 10 32 0'/></g></svg>">
           </figure>
-          <h3 class="person__name">Mira Kowalczyk</h3>
-          <p class="person__role">Curly Cutting &amp; Naturlocke</p>
+          <h3 class="person__name">Lilou Marchand</h3>
+          <p class="person__role">Inhaberin · Balayage</p>
+          <p class="person__line">„Farbe soll mitwachsen, nicht irgendwann als Kante enden."</p>
+        </article>
+
+        <article class="person tilt" data-reveal>
+          <figure class="tile tile--arch tile--sq">
+            <img class="ken ken--alt amb" width="600" height="600" loading="lazy" decoding="async"
+                 alt="Illustriertes Porträt mit hochgesteckter Frisur."
+                 src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'><defs><linearGradient id='g' gradientUnits='userSpaceOnUse' x1='300' y1='110' x2='300' y2='600'><stop offset='0' stop-color='%23cf929a'/><stop offset='1' stop-color='%23e8c9a8'/></linearGradient></defs><rect width='600' height='600' fill='%23f8eee6'/><path d='M300 176c-88 0-112 70-108 148 3 60 6 190 12 276h192c6-86 9-216 12-276 4-78-20-148-108-148z' fill='url(%23g)' opacity='.72'/><circle cx='300' cy='134' r='54' fill='url(%23g)' opacity='.85'/><circle cx='300' cy='134' r='54' fill='none' stroke='%23a4586a' stroke-width='3' opacity='.7'/><g fill='none' stroke='%23a4586a' stroke-width='3' stroke-linecap='round' opacity='.7'><path d='M238 216c-14 44-18 84-16 122'/><path d='M362 216c14 44 18 84 16 122'/></g><ellipse cx='300' cy='302' rx='72' ry='88' fill='%23fdf6f2'/><ellipse cx='300' cy='302' rx='72' ry='88' fill='none' stroke='%23b4677a' stroke-width='3'/><g stroke='%23b8893f' stroke-width='2.2' fill='none'><circle cx='250' cy='150' r='13'/><circle cx='350' cy='150' r='13'/><circle cx='300' cy='72' r='11'/><circle cx='250' cy='150' r='4' fill='%23c9a06a' stroke='none'/><circle cx='350' cy='150' r='4' fill='%23c9a06a' stroke='none'/></g><g fill='none' stroke='%233a2b2f' stroke-opacity='.6' stroke-width='2.8' stroke-linecap='round'><path d='M266 292h22M312 292h22'/><path d='M263 272c8-6 18-6 26-1M311 271c8-5 18-5 26 1'/><path d='M284 344c10 10 22 10 32 0'/></g></svg>">
+          </figure>
+          <h3 class="person__name">Sophie Wernick</h3>
+          <p class="person__role">Braut- &amp; Eventstyling</p>
+          <p class="person__line">„Eine Hochsteckfrisur muss elf Stunden halten, nicht elf Minuten."</p>
+        </article>
+
+        <article class="person tilt" data-reveal>
+          <figure class="tile tile--arch tile--sq">
+            <img class="ken amb" width="600" height="600" loading="lazy" decoding="async"
+                 alt="Illustriertes Porträt mit Lockenkontur."
+                 src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'><defs><linearGradient id='g' gradientUnits='userSpaceOnUse' x1='300' y1='110' x2='300' y2='600'><stop offset='0' stop-color='%23c98a9c'/><stop offset='1' stop-color='%23e0b8c0'/></linearGradient></defs><rect width='600' height='600' fill='%23f6e9ef'/><circle cx='300' cy='182' r='58' fill='url(%23g)' opacity='.62'/><circle cx='212' cy='214' r='50' fill='url(%23g)' opacity='.62'/><circle cx='388' cy='214' r='50' fill='url(%23g)' opacity='.62'/><circle cx='176' cy='296' r='44' fill='url(%23g)' opacity='.62'/><circle cx='424' cy='296' r='44' fill='url(%23g)' opacity='.62'/><circle cx='196' cy='382' r='40' fill='url(%23g)' opacity='.62'/><circle cx='404' cy='382' r='40' fill='url(%23g)' opacity='.62'/><circle cx='228' cy='452' r='38' fill='url(%23g)' opacity='.62'/><circle cx='372' cy='452' r='38' fill='url(%23g)' opacity='.62'/><circle cx='300' cy='500' r='40' fill='url(%23g)' opacity='.62'/><circle cx='300' cy='182' r='58' fill='none' stroke='%23a4586a' stroke-width='2.6' opacity='.55'/><circle cx='212' cy='214' r='50' fill='none' stroke='%23a4586a' stroke-width='2.6' opacity='.55'/><circle cx='388' cy='214' r='50' fill='none' stroke='%23a4586a' stroke-width='2.6' opacity='.55'/><circle cx='176' cy='296' r='44' fill='none' stroke='%23a4586a' stroke-width='2.6' opacity='.55'/><circle cx='424' cy='296' r='44' fill='none' stroke='%23a4586a' stroke-width='2.6' opacity='.55'/><circle cx='196' cy='382' r='40' fill='none' stroke='%23a4586a' stroke-width='2.6' opacity='.55'/><circle cx='404' cy='382' r='40' fill='none' stroke='%23a4586a' stroke-width='2.6' opacity='.55'/><circle cx='228' cy='452' r='38' fill='none' stroke='%23a4586a' stroke-width='2.6' opacity='.55'/><circle cx='372' cy='452' r='38' fill='none' stroke='%23a4586a' stroke-width='2.6' opacity='.55'/><circle cx='300' cy='500' r='40' fill='none' stroke='%23a4586a' stroke-width='2.6' opacity='.55'/><ellipse cx='300' cy='302' rx='72' ry='88' fill='%23fdf6f2'/><ellipse cx='300' cy='302' rx='72' ry='88' fill='none' stroke='%23b4677a' stroke-width='3'/><g fill='none' stroke='%233a2b2f' stroke-opacity='.6' stroke-width='2.8' stroke-linecap='round'><path d='M266 292h22M312 292h22'/><path d='M263 272c8-6 18-6 26-1M311 271c8-5 18-5 26 1'/><path d='M284 344c10 10 22 10 32 0'/></g></svg>">
+          </figure>
+          <h3 class="person__name">Nadja Petrova</h3>
+          <p class="person__role">Locken &amp; Curly Cutting</p>
           <p class="person__line">„Ich schneide trocken. Nass sieht jede Locke aus wie eine andere."</p>
         </article>
 
         <article class="person tilt" data-reveal>
-          <figure class="tile tile--sq">
+          <figure class="tile tile--arch tile--sq">
             <img class="ken ken--alt amb" width="600" height="600" loading="lazy" decoding="async"
-                 alt="Abstraktes Porträt mit Bartkontur."
-                 src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'><rect width='600' height='600' fill='%23161311'/><circle cx='300' cy='300' r='232' fill='%231e1a16'/><g fill='none' stroke='%23c9a227' stroke-width='3' opacity='.72'><path d='M206 262v-24a94 94 0 01188 0v24'/><path d='M206 262c0 78 42 132 94 132s94-54 94-132'/></g><path d='M228 300c14 76 40 116 72 116s58-40 72-116' fill='none' stroke='%23f4efe8' stroke-opacity='.28' stroke-width='2.6'/><path d='M186 486c24-70 64-106 114-106s90 36 114 106' fill='none' stroke='%23f4efe8' stroke-opacity='.22' stroke-width='2.4'/><path d='M244 208h112' stroke='%23c9a227' stroke-width='2' opacity='.5'/></svg>">
+                 alt="Illustriertes Porträt mit sehr langen Haaren."
+                 src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'><defs><linearGradient id='g' gradientUnits='userSpaceOnUse' x1='300' y1='110' x2='300' y2='600'><stop offset='0' stop-color='%23c9848f'/><stop offset='1' stop-color='%23ecd0ae'/></linearGradient></defs><rect width='600' height='600' fill='%23f9ece5'/><path d='M300 116c-96 0-124 84-118 174 6 122-8 224 2 310h232c10-86-4-188 2-310 6-90-22-174-118-174z' fill='url(%23g)' opacity='.76'/><g fill='none' stroke='%23a4586a' stroke-width='3.2' stroke-linecap='round' opacity='.8'><path d='M236 208c-20 88-24 182-16 280'/><path d='M364 208c20 88 24 182 16 280'/></g><g fill='none' stroke='%23a4586a' stroke-width='2.4' stroke-linecap='round' opacity='.42'><path d='M200 340c-6 102-6 172-2 260'/><path d='M400 340c6 102 6 172 2 260'/><path d='M232 390c-6 88-6 146-2 210'/><path d='M368 390c6 88 6 146 2 210'/><path d='M264 430c-4 76-4 122-2 170'/><path d='M336 430c4 76 4 122 2 170'/></g><ellipse cx='300' cy='302' rx='72' ry='88' fill='%23fdf6f2'/><ellipse cx='300' cy='302' rx='72' ry='88' fill='none' stroke='%23b4677a' stroke-width='3'/><g stroke='%23b8893f' stroke-width='2' fill='none'><circle cx='412' cy='232' r='12'/><circle cx='392' cy='250' r='8'/><circle cx='428' cy='254' r='7'/><circle cx='412' cy='232' r='3.5' fill='%23c9a06a' stroke='none'/></g><g fill='none' stroke='%233a2b2f' stroke-opacity='.6' stroke-width='2.8' stroke-linecap='round'><path d='M266 292h22M312 292h22'/><path d='M263 272c8-6 18-6 26-1M311 271c8-5 18-5 26 1'/><path d='M284 344c10 10 22 10 32 0'/></g></svg>">
           </figure>
-          <h3 class="person__name">Jonas Feldmann</h3>
-          <p class="person__role">Klassik &amp; Rasur</p>
-          <p class="person__line">„Fünfzehn Jahre Schere. Kein einziger Fade zu viel."</p>
+          <h3 class="person__name">Emine Yildiz</h3>
+          <p class="person__role">Extensions &amp; Verlängerung</p>
+          <p class="person__line">„Gute Extensions sieht man nicht — man sieht nur volleres Haar."</p>
         </article>
 
         <article class="person tilt" data-reveal>
-          <figure class="tile tile--sq">
+          <figure class="tile tile--arch tile--sq">
             <img class="ken amb" width="600" height="600" loading="lazy" decoding="async"
-                 alt="Abstraktes Porträt mit farbigen Strähnenlinien."
-                 src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'><rect width='600' height='600' fill='%23161311'/><circle cx='300' cy='300' r='232' fill='%231e1a16'/><g fill='none' stroke-width='3'><path d='M212 470V284a88 88 0 01176 0v186' stroke='%23c9a227' opacity='.7'/><path d='M246 470V292' stroke='%23e0b94a' opacity='.55'/><path d='M282 470V286' stroke='%23f4efe8' stroke-opacity='.3'/><path d='M318 470V286' stroke='%23c98a3a' opacity='.5'/><path d='M354 470V292' stroke='%23e0b94a' opacity='.4'/></g><circle cx='300' cy='214' r='58' fill='none' stroke='%23f4efe8' stroke-opacity='.26' stroke-width='2.6'/></svg>">
+                 alt="Illustriertes Porträt mit Bob-Frisur."
+                 src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'><defs><linearGradient id='g' gradientUnits='userSpaceOnUse' x1='300' y1='110' x2='300' y2='600'><stop offset='0' stop-color='%23cf8f92'/><stop offset='1' stop-color='%23e9c6a4'/></linearGradient></defs><rect width='600' height='600' fill='%23f5ece4'/><path d='M300 120c-98 0-126 84-120 172 3 48 7 88 14 122 26 24 62 34 106 34s80-10 106-34c7-34 11-74 14-122 6-88-22-172-120-172z' fill='url(%23g)' opacity='.76'/><g fill='none' stroke='%23a4586a' stroke-width='3.2' stroke-linecap='round' opacity='.8'><path d='M232 206c-16 62-20 122-14 178'/><path d='M368 206c16 62 20 122 14 178'/></g><g fill='none' stroke='%23a4586a' stroke-width='2.6' stroke-linecap='round' opacity='.5'><path d='M300 116v66'/></g><ellipse cx='300' cy='302' rx='72' ry='88' fill='%23fdf6f2'/><ellipse cx='300' cy='302' rx='72' ry='88' fill='none' stroke='%23b4677a' stroke-width='3'/><path d='M186 600c26-84 66-128 114-128s88 44 114 128' fill='none' stroke='%23a4586a' stroke-width='3' opacity='.4'/><g stroke='%23b8893f' stroke-width='2' fill='none'><circle cx='412' cy='232' r='12'/><circle cx='392' cy='250' r='8'/><circle cx='428' cy='254' r='7'/><circle cx='412' cy='232' r='3.5' fill='%23c9a06a' stroke='none'/></g><g fill='none' stroke='%233a2b2f' stroke-opacity='.6' stroke-width='2.8' stroke-linecap='round'><path d='M266 292h22M312 292h22'/><path d='M263 272c8-6 18-6 26-1M311 271c8-5 18-5 26 1'/><path d='M284 344c10 10 22 10 32 0'/></g></svg>">
           </figure>
-          <h3 class="person__name">Alev Demirci</h3>
-          <p class="person__role">Farbe &amp; Balayage</p>
-          <p class="person__line">„Farbe ist Licht, kein Anstrich."</p>
+          <h3 class="person__name">Charlotte Beck</h3>
+          <p class="person__role">Schnitt &amp; Pflege</p>
+          <p class="person__line">„Der beste Schnitt ist der, den Sie morgens allein hinbekommen."</p>
         </article>
 
         <article class="person tilt" data-reveal>
-          <figure class="tile tile--sq">
+          <figure class="tile tile--arch tile--sq">
             <img class="ken ken--alt amb" width="600" height="600" loading="lazy" decoding="async"
-                 alt="Abstraktes Porträt mit kantiger Kurzhaarform."
-                 src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'><rect width='600' height='600' fill='%23161311'/><circle cx='300' cy='300' r='232' fill='%231e1a16'/><g fill='none' stroke='%23c9a227' stroke-width='3' opacity='.72'><path d='M204 300l40-92h112l40 92'/><path d='M204 300v42a96 96 0 00192 0v-42'/></g><path d='M180 486l60-72h120l60 72' fill='none' stroke='%23f4efe8' stroke-opacity='.26' stroke-width='2.6'/><path d='M266 348h68' stroke='%23f4efe8' stroke-opacity='.3' stroke-width='2.4'/></svg>">
+                 alt="Illustriertes Porträt mit geflochtenem Zopf."
+                 src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'><defs><linearGradient id='g' gradientUnits='userSpaceOnUse' x1='300' y1='110' x2='300' y2='600'><stop offset='0' stop-color='%23c9848f'/><stop offset='1' stop-color='%23e3bcc4'/></linearGradient></defs><rect width='600' height='600' fill='%23f7e8ea'/><path d='M300 124c-96 0-122 82-116 168 3 48 6 84 10 116h212c4-32 7-68 10-116 6-86-20-168-116-168z' fill='url(%23g)' opacity='.74'/><g fill='none' stroke='%23a4586a' stroke-width='3.2' stroke-linecap='round' opacity='.8'><path d='M234 210c-16 58-20 108-14 156'/><path d='M366 210c16 58 20 108 14 156'/></g><ellipse cx='300' cy='416' rx='38' ry='30' fill='url(%23g)' opacity='.7'/><ellipse cx='300' cy='416' rx='38' ry='30' fill='none' stroke='%23a4586a' stroke-width='2.6' opacity='.6'/><ellipse cx='300' cy='474' rx='38' ry='30' fill='url(%23g)' opacity='.7'/><ellipse cx='300' cy='474' rx='38' ry='30' fill='none' stroke='%23a4586a' stroke-width='2.6' opacity='.6'/><ellipse cx='300' cy='532' rx='38' ry='30' fill='url(%23g)' opacity='.7'/><ellipse cx='300' cy='532' rx='38' ry='30' fill='none' stroke='%23a4586a' stroke-width='2.6' opacity='.6'/><path d='M300 562v38' stroke='%23a4586a' stroke-width='3' opacity='.5' fill='none'/><ellipse cx='300' cy='302' rx='72' ry='88' fill='%23fdf6f2'/><ellipse cx='300' cy='302' rx='72' ry='88' fill='none' stroke='%23b4677a' stroke-width='3'/><g stroke='%23b8893f' stroke-width='2.2' fill='none'><circle cx='252' cy='176' r='12'/><circle cx='348' cy='176' r='12'/><circle cx='252' cy='176' r='3.5' fill='%23c9a06a' stroke='none'/><circle cx='348' cy='176' r='3.5' fill='%23c9a06a' stroke='none'/></g><g fill='none' stroke='%233a2b2f' stroke-opacity='.6' stroke-width='2.8' stroke-linecap='round'><path d='M266 292h22M312 292h22'/><path d='M263 272c8-6 18-6 26-1M311 271c8-5 18-5 26 1'/><path d='M284 344c10 10 22 10 32 0'/></g></svg>">
           </figure>
-          <h3 class="person__name">Theo Brandt</h3>
-          <p class="person__role">Editorial &amp; Kurzhaar</p>
-          <p class="person__line">„Kommt vom Set, bleibt am Stuhl."</p>
+          <h3 class="person__name">Ida Rosenthal</h3>
+          <p class="person__role">Flechtwerk &amp; Farbe</p>
+          <p class="person__line">„Für Flechtfrisuren braucht Haar Griff — deshalb wasche ich sie vorher nicht."</p>
         </article>
 
       </div>
@@ -442,52 +717,52 @@ html.rm [data-split] .wi{transform:none}
   <section class="lookbook" id="lookbook">
     <div class="lookbook__pin">
       <div class="wrap lookbook__head">
-        <p class="eyebrow" data-reveal>Lookbook</p>
-        <h2 class="h2 h2--sm" data-split>Arbeiten aus elf Jahren.</h2>
+        <p class="eyebrow" data-reveal>Looks</p>
+        <h2 class="h2 h2--sm" data-split>Aus vierzehn Jahren Salon.</h2>
       </div>
       <div class="lookbook__viewport">
         <div class="lookbook__track" id="lb-track">
 
           <figure class="shot" data-reveal>
             <img class="ken amb" width="560" height="700" loading="lazy" decoding="async"
-                 alt="Grafische Darstellung eines Bob-Schnitts."
-                 src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 560 700'><rect width='560' height='700' fill='%23181513'/><path d='M0 700V420a280 280 0 01560 0v280z' fill='%23221c17'/><g fill='none' stroke='%23c9a227' stroke-width='2.6' opacity='.7'><path d='M150 700V326a130 130 0 01260 0v374'/><path d='M150 470h260'/></g><circle cx='280' cy='268' r='70' fill='none' stroke='%23f4efe8' stroke-opacity='.28' stroke-width='2.4'/></svg>">
-            <figcaption>Stumpfer Bob · Trockenschnitt</figcaption>
+                 alt="Grafische Darstellung eines Balayage-Verlaufs."
+                 src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 560 700'><defs><linearGradient id='g' gradientUnits='userSpaceOnUse' x1='280' y1='70' x2='280' y2='700'><stop offset='0' stop-color='%238f5560'/><stop offset='1' stop-color='%23ecd3ab'/></linearGradient></defs><rect width='560' height='700' fill='%23fbf1ee'/><path d='M280 130c-108 0-138 90-132 186 6 120-10 246 2 384h260c12-138-4-264 2-384 6-96-24-186-132-186z' fill='url(%23g)' opacity='.82'/><g fill='none' stroke='%23a4586a' stroke-width='3.4' stroke-linecap='round' opacity='.55'><path d='M210 226c-24 90-28 200-18 314'/><path d='M350 226c24 90 28 200 18 314'/></g><g fill='none' stroke='%23a4586a' stroke-width='2.6' stroke-linecap='round' opacity='.35'><path d='M172 400c-8 100-8 190-2 300'/><path d='M388 400c8 100 8 190 2 300'/><path d='M214 470c-8 80-8 150-4 230'/><path d='M346 470c8 80 8 150 4 230'/></g><ellipse cx='280' cy='322' rx='76' ry='94' fill='%23fdf6f2'/><ellipse cx='280' cy='322' rx='76' ry='94' fill='none' stroke='%23b4677a' stroke-width='3.2'/><g fill='none' stroke='%233a2b2f' stroke-opacity='.58' stroke-width='3' stroke-linecap='round'><path d='M242 312h24M294 312h24'/><path d='M239 290c9-7 20-7 28-1M294 289c9-6 20-6 28 1'/><path d='M262 366c11 11 25 11 36 0'/></g></svg>">
+            <figcaption>Balayage · warmes Karamell</figcaption>
           </figure>
 
           <figure class="shot shot--wide" data-reveal>
             <img class="ken ken--alt amb" width="760" height="700" loading="lazy" decoding="async"
-                 alt="Grafische Darstellung einer Schere."
-                 src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 760 700'><rect width='760' height='700' fill='%23181513'/><g fill='none' stroke='%23c9a227' stroke-width='4' stroke-linecap='round' opacity='.78'><path d='M230 170l300 380M530 170L230 550'/><circle cx='196' cy='142' r='38'/><circle cx='564' cy='142' r='38'/></g><circle cx='380' cy='360' r='12' fill='%23c9a227' opacity='.9'/><g stroke='%23f4efe8' stroke-opacity='.16' stroke-width='2'><path d='M80 620h600'/><path d='M80 650h420'/></g></svg>">
-            <figcaption>Werkzeug · Kasho 6.0</figcaption>
+                 alt="Grafische Darstellung einer Hochsteckfrisur mit Blüten."
+                 src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 760 700'><defs><linearGradient id='g' gradientUnits='userSpaceOnUse' x1='380' y1='70' x2='380' y2='700'><stop offset='0' stop-color='%23cf929a'/><stop offset='1' stop-color='%23e8c9a8'/></linearGradient></defs><rect width='760' height='700' fill='%23f9efe9'/><path d='M380 202c-92 0-118 72-114 152 3 62 7 196 13 346h202c6-150 10-284 13-346 4-80-22-152-114-152z' fill='url(%23g)' opacity='.76'/><circle cx='380' cy='158' r='58' fill='url(%23g)' opacity='.88'/><circle cx='380' cy='158' r='58' fill='none' stroke='%23a4586a' stroke-width='3.2' opacity='.7'/><g fill='none' stroke='%23a4586a' stroke-width='3.2' stroke-linecap='round' opacity='.65'><path d='M314 242c-14 46-18 88-16 128'/><path d='M446 242c14 46 18 88 16 128'/></g><ellipse cx='380' cy='322' rx='76' ry='94' fill='%23fdf6f2'/><ellipse cx='380' cy='322' rx='76' ry='94' fill='none' stroke='%23b4677a' stroke-width='3.2'/><g stroke='%23b8893f' stroke-width='2.4' fill='none'><circle cx='326' cy='176' r='15'/><circle cx='434' cy='176' r='15'/><circle cx='380' cy='90' r='13'/><circle cx='326' cy='176' r='4.5' fill='%23c9a06a' stroke='none'/><circle cx='434' cy='176' r='4.5' fill='%23c9a06a' stroke='none'/><circle cx='380' cy='90' r='4' fill='%23c9a06a' stroke='none'/></g><g fill='none' stroke='%233a2b2f' stroke-opacity='.58' stroke-width='3' stroke-linecap='round'><path d='M342 312h24M394 312h24'/><path d='M339 290c9-7 20-7 28-1M394 289c9-6 20-6 28 1'/><path d='M362 366c11 11 25 11 36 0'/></g></svg>">
+            <figcaption>Hochsteckfrisur · Standesamt</figcaption>
           </figure>
 
           <figure class="shot" data-reveal>
             <img class="ken amb" width="560" height="700" loading="lazy" decoding="async"
-                 alt="Grafische Darstellung von Balayage-Verläufen."
-                 src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 560 700'><defs><linearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='700'><stop offset='0' stop-color='%23c9a227' stop-opacity='.15'/><stop offset='1' stop-color='%23e6c26a' stop-opacity='.8'/></linearGradient></defs><rect width='560' height='700' fill='%23181513'/><g fill='none' stroke='url(%23b)' stroke-width='7' stroke-linecap='round'><path d='M140 90v520'/><path d='M200 70v560'/><path d='M260 90v520'/><path d='M320 70v560'/><path d='M380 90v520'/><path d='M440 110v480'/></g></svg>">
-            <figcaption>Balayage · warmes Blond</figcaption>
+                 alt="Grafische Darstellung eines Long Bob."
+                 src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 560 700'><defs><linearGradient id='g' gradientUnits='userSpaceOnUse' x1='280' y1='70' x2='280' y2='700'><stop offset='0' stop-color='%23cf8f92'/><stop offset='1' stop-color='%23e9c6a4'/></linearGradient></defs><rect width='560' height='700' fill='%23f7ece4'/><path d='M280 140c-104 0-134 88-128 180 3 54 8 100 16 140 28 26 66 38 112 38s84-12 112-38c8-40 13-86 16-140 6-92-24-180-128-180z' fill='url(%23g)' opacity='.8'/><g fill='none' stroke='%23a4586a' stroke-width='3.2' stroke-linecap='round' opacity='.6'><path d='M210 234c-18 66-22 132-16 190'/><path d='M350 234c18 66 22 132 16 190'/><path d='M280 136v70'/></g><ellipse cx='280' cy='322' rx='76' ry='94' fill='%23fdf6f2'/><ellipse cx='280' cy='322' rx='76' ry='94' fill='none' stroke='%23b4677a' stroke-width='3.2'/><g fill='none' stroke='%233a2b2f' stroke-opacity='.58' stroke-width='3' stroke-linecap='round'><path d='M242 312h24M294 312h24'/><path d='M239 290c9-7 20-7 28-1M294 289c9-6 20-6 28 1'/><path d='M262 366c11 11 25 11 36 0'/></g></svg>">
+            <figcaption>Long Bob · glatt geföhnt</figcaption>
           </figure>
 
           <figure class="shot" data-reveal>
             <img class="ken ken--alt amb" width="560" height="700" loading="lazy" decoding="async"
-                 alt="Grafische Darstellung eines Kamms."
-                 src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 560 700'><rect width='560' height='700' fill='%23181513'/><rect x='120' y='180' width='320' height='64' rx='14' fill='none' stroke='%23c9a227' stroke-width='3' opacity='.75'/><g stroke='%23c9a227' stroke-width='3' opacity='.6'><path d='M150 244v230'/><path d='M188 244v230'/><path d='M226 244v230'/><path d='M264 244v230'/><path d='M302 244v230'/><path d='M340 244v230'/><path d='M378 244v230'/><path d='M416 244v230'/></g><path d='M120 540h320' stroke='%23f4efe8' stroke-opacity='.2' stroke-width='2'/></svg>">
-            <figcaption>Herrenschnitt · Seitenscheitel</figcaption>
+                 alt="Grafische Darstellung definierter Locken."
+                 src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 560 700'><defs><linearGradient id='g' gradientUnits='userSpaceOnUse' x1='280' y1='70' x2='280' y2='700'><stop offset='0' stop-color='%23c98a9c'/><stop offset='1' stop-color='%23e0b8c0'/></linearGradient></defs><rect width='560' height='700' fill='%23f7eaf0'/><circle cx='280' cy='208' r='62' fill='url(%23g)' opacity='.66'/><circle cx='186' cy='244' r='54' fill='url(%23g)' opacity='.66'/><circle cx='374' cy='244' r='54' fill='url(%23g)' opacity='.66'/><circle cx='150' cy='334' r='48' fill='url(%23g)' opacity='.66'/><circle cx='410' cy='334' r='48' fill='url(%23g)' opacity='.66'/><circle cx='170' cy='428' r='44' fill='url(%23g)' opacity='.66'/><circle cx='390' cy='428' r='44' fill='url(%23g)' opacity='.66'/><circle cx='206' cy='506' r='42' fill='url(%23g)' opacity='.66'/><circle cx='354' cy='506' r='42' fill='url(%23g)' opacity='.66'/><circle cx='280' cy='552' r='44' fill='url(%23g)' opacity='.66'/><circle cx='280' cy='208' r='62' fill='none' stroke='%23a4586a' stroke-width='2.8' opacity='.5'/><circle cx='186' cy='244' r='54' fill='none' stroke='%23a4586a' stroke-width='2.8' opacity='.5'/><circle cx='374' cy='244' r='54' fill='none' stroke='%23a4586a' stroke-width='2.8' opacity='.5'/><circle cx='150' cy='334' r='48' fill='none' stroke='%23a4586a' stroke-width='2.8' opacity='.5'/><circle cx='410' cy='334' r='48' fill='none' stroke='%23a4586a' stroke-width='2.8' opacity='.5'/><circle cx='170' cy='428' r='44' fill='none' stroke='%23a4586a' stroke-width='2.8' opacity='.5'/><circle cx='390' cy='428' r='44' fill='none' stroke='%23a4586a' stroke-width='2.8' opacity='.5'/><circle cx='206' cy='506' r='42' fill='none' stroke='%23a4586a' stroke-width='2.8' opacity='.5'/><circle cx='354' cy='506' r='42' fill='none' stroke='%23a4586a' stroke-width='2.8' opacity='.5'/><circle cx='280' cy='552' r='44' fill='none' stroke='%23a4586a' stroke-width='2.8' opacity='.5'/><ellipse cx='280' cy='336' rx='76' ry='94' fill='%23fdf6f2'/><ellipse cx='280' cy='336' rx='76' ry='94' fill='none' stroke='%23b4677a' stroke-width='3.2'/><g fill='none' stroke='%233a2b2f' stroke-opacity='.58' stroke-width='3' stroke-linecap='round'><path d='M242 326h24M294 326h24'/><path d='M239 304c9-7 20-7 28-1M294 303c9-6 20-6 28 1'/><path d='M262 380c11 11 25 11 36 0'/></g></svg>">
+            <figcaption>Locken · Trockenschnitt</figcaption>
           </figure>
 
           <figure class="shot shot--wide" data-reveal>
             <img class="ken amb" width="760" height="700" loading="lazy" decoding="async"
-                 alt="Grafische Darstellung wehender Haarsträhnen."
-                 src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 760 700'><rect width='760' height='700' fill='%23181513'/><g fill='none' stroke='%23c9a227' stroke-width='2.6' opacity='.55'><path d='M40 620C200 500 240 300 200 80'/><path d='M140 640C300 520 340 320 300 100'/><path d='M240 660C400 540 440 340 400 120'/><path d='M340 660C500 540 540 340 500 120'/><path d='M440 640C600 520 640 320 600 100'/></g><g fill='none' stroke='%23f4efe8' stroke-opacity='.18' stroke-width='2'><path d='M90 630C250 510 290 310 250 90'/><path d='M390 650C550 530 590 330 550 110'/></g></svg>">
-            <figcaption>Bewegung · Lange Stufen</figcaption>
+                 alt="Grafische Darstellung wehender langer Haare."
+                 src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 760 700'><defs><linearGradient id='g' gradientUnits='userSpaceOnUse' x1='380' y1='70' x2='380' y2='700'><stop offset='0' stop-color='%23b06d7c'/><stop offset='1' stop-color='%23e7c9a2'/></linearGradient></defs><rect width='760' height='700' fill='%23fbf1ee'/><path d='M380 128c-116 0-148 92-142 190 6 124-10 250 2 382h280c12-132-4-258 2-382 6-98-26-190-142-190z' fill='url(%23g)' opacity='.8'/><g fill='none' stroke='%23a4586a' stroke-width='3.4' stroke-linecap='round' opacity='.55'><path d='M302 226c-26 92-30 204-20 320'/><path d='M458 226c26 92 30 204 20 320'/></g><g fill='none' stroke='%23a4586a' stroke-width='2.6' stroke-linecap='round' opacity='.34'><path d='M258 372c-10 106-10 210-4 328'/><path d='M502 372c10 106 10 210 4 328'/><path d='M304 448c-8 88-8 168-4 252'/><path d='M456 448c8 88 8 168 4 252'/><path d='M348 508c-6 72-6 130-4 192'/><path d='M412 508c6 72 6 130 4 192'/></g><ellipse cx='380' cy='318' rx='76' ry='94' fill='%23fdf6f2'/><ellipse cx='380' cy='318' rx='76' ry='94' fill='none' stroke='%23b4677a' stroke-width='3.2'/><g fill='none' stroke='%233a2b2f' stroke-opacity='.58' stroke-width='3' stroke-linecap='round'><path d='M342 308h24M394 308h24'/><path d='M339 286c9-7 20-7 28-1M394 285c9-6 20-6 28 1'/><path d='M362 362c11 11 25 11 36 0'/></g></svg>">
+            <figcaption>Lange Stufen · Bewegung</figcaption>
           </figure>
 
           <figure class="shot" data-reveal>
             <img class="ken ken--alt amb" width="560" height="700" loading="lazy" decoding="async"
-                 alt="Grafische Darstellung eines Rasiermessers mit heißem Tuch."
-                 src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 560 700'><rect width='560' height='700' fill='%23181513'/><g fill='none' stroke='%23c9a227' stroke-width='3.4' stroke-linecap='round' opacity='.75'><path d='M120 460l260-260 44 44-260 260z'/><path d='M136 508l-40 40'/></g><g fill='none' stroke='%23f4efe8' stroke-opacity='.22' stroke-width='2.4'><path d='M300 560c40-40 100-40 140 0'/><path d='M300 600c40-40 100-40 140 0'/></g><circle cx='420' cy='180' r='30' fill='none' stroke='%23c9a227' stroke-width='2' opacity='.5'/></svg>">
-            <figcaption>Rasur · heißes Tuch</figcaption>
+                 alt="Grafische Darstellung eines geflochtenen Zopfes mit Blüten."
+                 src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 560 700'><defs><linearGradient id='g' gradientUnits='userSpaceOnUse' x1='280' y1='70' x2='280' y2='700'><stop offset='0' stop-color='%23c9848f'/><stop offset='1' stop-color='%23e3bcc4'/></linearGradient></defs><rect width='560' height='700' fill='%23f8eaec'/><path d='M280 148c-104 0-132 88-126 180 3 52 7 92 11 126h230c4-34 8-74 11-126 6-92-22-180-126-180z' fill='url(%23g)' opacity='.78'/><g fill='none' stroke='%23a4586a' stroke-width='3.2' stroke-linecap='round' opacity='.6'><path d='M212 240c-18 62-22 116-16 168'/><path d='M348 240c18 62 22 116 16 168'/></g><ellipse cx='280' cy='486' rx='42' ry='33' fill='url(%23g)' opacity='.74'/><ellipse cx='280' cy='486' rx='42' ry='33' fill='none' stroke='%23a4586a' stroke-width='2.8' opacity='.6'/><ellipse cx='280' cy='550' rx='42' ry='33' fill='url(%23g)' opacity='.74'/><ellipse cx='280' cy='550' rx='42' ry='33' fill='none' stroke='%23a4586a' stroke-width='2.8' opacity='.6'/><ellipse cx='280' cy='614' rx='42' ry='33' fill='url(%23g)' opacity='.74'/><ellipse cx='280' cy='614' rx='42' ry='33' fill='none' stroke='%23a4586a' stroke-width='2.8' opacity='.6'/><ellipse cx='280' cy='352' rx='76' ry='94' fill='%23fdf6f2'/><ellipse cx='280' cy='352' rx='76' ry='94' fill='none' stroke='%23b4677a' stroke-width='3.2'/><g stroke='%23b8893f' stroke-width='2.4' fill='none'><circle cx='228' cy='200' r='14'/><circle cx='332' cy='200' r='14'/><circle cx='228' cy='200' r='4' fill='%23c9a06a' stroke='none'/><circle cx='332' cy='200' r='4' fill='%23c9a06a' stroke='none'/></g><g fill='none' stroke='%233a2b2f' stroke-opacity='.58' stroke-width='3' stroke-linecap='round'><path d='M242 342h24M294 342h24'/><path d='M239 320c9-7 20-7 28-1M294 319c9-6 20-6 28 1'/><path d='M262 396c11 11 25 11 36 0'/></g></svg>">
+            <figcaption>Flechtkranz · Sommerfest</figcaption>
           </figure>
 
         </div>
@@ -496,29 +771,38 @@ html.rm [data-split] .wi{transform:none}
   </section>
 
   <!-- ========== 7. Bewertungen ========== -->
-  <section class="sec cv" id="stimmen">
+  <section class="sec sec--tint cv" id="stimmen">
     <div class="wrap">
-      <header class="sec__head">
+      <header class="sec__head sec__head--center">
         <p class="eyebrow" data-reveal>Stimmen</p>
-        <h2 class="h2" data-split>Was hängen bleibt.</h2>
+        <h2 class="h2" data-split>Was unsere Kundinnen sagen.</h2>
       </header>
 
       <div class="quotes" data-stagger>
         <figure class="quote tilt" data-reveal>
-          <blockquote><p>Zum ersten Mal hat mir jemand erklärt, warum mein Wirbel macht, was er macht. Danach saß der Schnitt sechs Wochen.</p></blockquote>
-          <figcaption>L. Wendt <span>· seit 2019 dabei</span></figcaption>
+          <div class="stars" aria-label="Fünf von fünf Sternen">★★★★★</div>
+          <blockquote><p>Ich sitze hier seit sieben Jahren und musste noch nie erklären, was ich eigentlich will.</p></blockquote>
+          <figcaption>Annika R. <span>· Charlottenburg</span></figcaption>
         </figure>
         <figure class="quote tilt" data-reveal>
-          <blockquote><p>Ruhig, präzise, kein Verkaufsgespräch. Ich gehe raus und muss zu Hause nichts nachbessern.</p></blockquote>
-          <figcaption>M. Sarközy <span>· Kreuzberg</span></figcaption>
+          <div class="stars" aria-label="Fünf von fünf Sternen">★★★★★</div>
+          <blockquote><p>Meine Balayage ist nach vier Monaten immer noch schön herausgewachsen — und nirgendwo streifig.</p></blockquote>
+          <figcaption>Vanessa K. <span>· Wilmersdorf</span></figcaption>
         </figure>
         <figure class="quote tilt" data-reveal>
-          <blockquote><p>Eine Balayage, die nach sechs Monaten immer noch nicht rausgewachsen aussieht. Das war vorher nie so.</p></blockquote>
-          <figcaption>F. Oduya <span>· Neukölln</span></figcaption>
+          <div class="stars" aria-label="Fünf von fünf Sternen">★★★★★</div>
+          <blockquote><p>Beim Probestyling wurde jede Strähne durchgesprochen. Am Hochzeitstag hat dann alles elf Stunden gehalten.</p></blockquote>
+          <figcaption>Melike D. <span>· Mitte</span></figcaption>
         </figure>
         <figure class="quote tilt" data-reveal>
-          <blockquote><p>Die Rasur mit heißem Tuch ist die einzige halbe Stunde der Woche, in der mein Telefon aus ist.</p></blockquote>
-          <figcaption>R. Kittel <span>· Mitte</span></figcaption>
+          <div class="stars" aria-label="Fünf von fünf Sternen">★★★★★</div>
+          <blockquote><p>Man hat mir von der Blondierung abgeraten und etwas Besseres vorgeschlagen. Das rechne ich einem Salon hoch an.</p></blockquote>
+          <figcaption>Christine V. <span>· Zehlendorf</span></figcaption>
+        </figure>
+        <figure class="quote tilt" data-reveal>
+          <div class="stars" aria-label="Fünf von fünf Sternen">★★★★★</div>
+          <blockquote><p>Der einzige Ort, an dem ich mein Handy freiwillig weglege. Zwei Stunden nur für mich.</p></blockquote>
+          <figcaption>Jasmin O. <span>· Schöneberg</span></figcaption>
         </figure>
       </div>
     </div>
@@ -532,14 +816,14 @@ html.rm [data-split] .wi{transform:none}
         <h2 class="h2 h2--sm" data-split>Dienstag bis Samstag.</h2>
 
         <table class="times" data-reveal style="--d:120ms">
-          <caption class="sr-only">Öffnungszeiten von SCHNITTWERK</caption>
+          <caption class="sr-only">Öffnungszeiten von MAISON LILOU</caption>
           <tbody>
             <tr><th scope="row">Montag</th><td>geschlossen</td></tr>
-            <tr><th scope="row">Dienstag</th><td>10:00 – 19:00</td></tr>
-            <tr><th scope="row">Mittwoch</th><td>10:00 – 19:00</td></tr>
-            <tr><th scope="row">Donnerstag</th><td>10:00 – 21:00</td></tr>
-            <tr><th scope="row">Freitag</th><td>10:00 – 19:00</td></tr>
-            <tr><th scope="row">Samstag</th><td>09:00 – 16:00</td></tr>
+            <tr><th scope="row">Dienstag</th><td>09:00 – 19:00</td></tr>
+            <tr><th scope="row">Mittwoch</th><td>09:00 – 19:00</td></tr>
+            <tr><th scope="row">Donnerstag</th><td>09:00 – 21:00</td></tr>
+            <tr><th scope="row">Freitag</th><td>09:00 – 19:00</td></tr>
+            <tr><th scope="row">Samstag</th><td>09:00 – 18:00</td></tr>
             <tr><th scope="row">Sonntag</th><td>geschlossen</td></tr>
           </tbody>
         </table>
@@ -547,44 +831,45 @@ html.rm [data-split] .wi{transform:none}
         <p class="hours__note" data-reveal style="--d:200ms">
           <span class="dot amb" aria-hidden="true"></span>
           Donnerstags bis 21 Uhr — die Spätschicht ist meist zwei Wochen im Voraus belegt.
+          Brauttermine bitte frühzeitig anfragen.
         </p>
       </div>
 
       <div class="hours__col">
         <p class="eyebrow" data-reveal>Anfahrt</p>
-        <h2 class="h2 h2--sm" data-split>Lindenstraße 14.</h2>
+        <h2 class="h2 h2--sm" data-split>Bleibtreustraße 27.</h2>
 
         <figure class="map amb" data-reveal style="--d:120ms">
           <svg viewBox="0 0 600 420" width="600" height="420" role="img"
-               aria-label="Stilisierte Karte: Lindenstraße 14, vier Gehminuten vom U-Bahnhof Görlitzer Bahnhof.">
-            <rect width="600" height="420" fill="#141110"/>
-            <g stroke="#f4efe8" stroke-opacity=".1" stroke-width="18" fill="none">
+               aria-label="Stilisierte Karte: Bleibtreustraße 27, drei Gehminuten vom S-Bahnhof Savignyplatz.">
+            <rect width="600" height="420" fill="#f8efeb"/>
+            <g stroke="#2e2427" stroke-opacity=".08" stroke-width="18" fill="none">
               <path d="M-20 300h640"/><path d="M120 -20v460"/><path d="M420 -20v460"/>
               <path d="M-20 120h640"/>
             </g>
-            <path d="M-20 210 L640 130" stroke="#c9a227" stroke-opacity=".5" stroke-width="10" fill="none"/>
-            <g fill="#1d1915"><rect x="150" y="150" width="90" height="60" rx="4"/>
-              <rect x="260" y="330" width="120" height="60" rx="4"/>
-              <rect x="450" y="160" width="110" height="80" rx="4"/></g>
+            <path d="M300 -20v460" stroke="#b4677a" stroke-opacity=".55" stroke-width="11" fill="none"/>
+            <g fill="#f2e0da"><rect x="150" y="150" width="90" height="60" rx="6"/>
+              <rect x="330" y="330" width="120" height="60" rx="6"/>
+              <rect x="450" y="160" width="110" height="80" rx="6"/></g>
             <g class="map__pin">
-              <circle cx="300" cy="196" r="26" fill="none" stroke="#c9a227" stroke-width="2" opacity=".55"/>
-              <circle cx="300" cy="196" r="9" fill="#c9a227"/>
+              <circle cx="300" cy="196" r="27" fill="none" stroke="#b4677a" stroke-width="2" opacity=".6"/>
+              <circle cx="300" cy="196" r="9" fill="#b4677a"/>
             </g>
-            <text x="300" y="242" text-anchor="middle" fill="#f4efe8" fill-opacity=".85"
-                  font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" letter-spacing="1.5">SCHNITTWERK</text>
-            <text x="46" y="186" fill="#c9a227" fill-opacity=".85" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13">Lindenstraße</text>
-            <text x="440" y="112" fill="#8a8075" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13">U Görlitzer Bhf</text>
+            <text x="300" y="244" text-anchor="middle" fill="#2e2427" fill-opacity=".85"
+                  font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" letter-spacing="1.5">MAISON LILOU</text>
+            <text x="312" y="96" fill="#9c4a5f" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13">Bleibtreustraße</text>
+            <text x="432" y="286" fill="#6b585d" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13">S Savignyplatz</text>
           </svg>
         </figure>
 
         <address class="addr" data-reveal style="--d:200ms">
-          Lindenstraße 14<br>10969 Berlin-Kreuzberg<br>
-          <a class="ul" href="tel:+493055667788">030 55 66 77 88</a><br>
-          <a class="ul" href="mailto:hallo@schnittwerk-berlin.example">hallo@schnittwerk-berlin.example</a>
+          Bleibtreustraße 27<br>10707 Berlin-Charlottenburg<br>
+          <a class="ul" href="tel:+493088042160">030 88 04 21 60</a><br>
+          <a class="ul" href="mailto:hallo@maison-lilou.example">hallo@maison-lilou.example</a>
         </address>
 
         <p class="hours__note" data-reveal style="--d:260ms">
-          U1 und U3 bis Görlitzer Bahnhof, vier Minuten zu Fuß. Bus M29 hält direkt gegenüber.
+          S-Bahn Savignyplatz, drei Minuten zu Fuß. U1 Uhlandstraße in sechs Minuten.
           Parken: Anwohnerzone, abends meist frei.
         </p>
       </div>
@@ -592,7 +877,7 @@ html.rm [data-split] .wi{transform:none}
   </section>
 
   <!-- ========== 9. Terminanfrage ========== -->
-  <section class="sec cv" id="termin">
+  <section class="sec sec--tint cv" id="termin">
     <div class="wrap booking">
       <div class="booking__intro">
         <p class="eyebrow" data-reveal>Termin</p>
@@ -602,7 +887,11 @@ html.rm [data-split] .wi{transform:none}
           zwei Alternativen. Kurzfristig? Rufen Sie lieber an — wir haben fast
           täglich eine Lücke.
         </p>
-        <p class="booking__hint" data-reveal style="--d:200ms">
+        <p data-reveal style="--d:180ms">
+          Für Farbe, Extensions und Brautstyling planen wir eine kostenfreie
+          Beratung vorab ein.
+        </p>
+        <p class="booking__hint" data-reveal style="--d:240ms">
           Dies ist eine fiktive Demo-Website. Das Formular versendet nichts.
         </p>
       </div>
@@ -629,11 +918,12 @@ html.rm [data-split] .wi{transform:none}
           <div class="field field--select">
             <select id="f-svc" name="service" required>
               <option value="" selected>Bitte wählen</option>
-              <option>Damen · Schnitt &amp; Styling</option>
-              <option>Herren · Herrenschnitt</option>
-              <option>Bart · Bartschnitt oder Rasur</option>
-              <option>Farbe · Ansatz, Strähnen, Balayage</option>
-              <option>Extras · Kur, Massage, Beratung</option>
+              <option>Schnitt &amp; Styling</option>
+              <option>Farbe · Balayage, Strähnen, Ansatz</option>
+              <option>Pflege &amp; Rituale</option>
+              <option>Braut- oder Anlassstyling</option>
+              <option>Extensions</option>
+              <option>Beauty-Extras</option>
             </select>
             <label for="f-svc">Leistung</label>
             <p class="err" id="e-svc" hidden></p>
@@ -657,14 +947,14 @@ html.rm [data-split] .wi{transform:none}
           </div>
 
           <div class="field field--full">
-            <button class="btn btn--lg btn--pulse mag" type="submit">Anfrage senden</button>
+            <button class="btn btn--lg btn--solid btn--pulse mag" type="submit">Anfrage senden</button>
           </div>
         </form>
 
         <div class="done" id="done" role="status" hidden>
           <svg class="done__check" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true">
-            <circle cx="32" cy="32" r="29" fill="none" stroke="#c9a227" stroke-width="2" opacity=".45"/>
-            <path d="M19 33.5l9.5 9.5L45 22" fill="none" stroke="#c9a227" stroke-width="3.4"
+            <circle cx="32" cy="32" r="29" fill="none" stroke="#b4677a" stroke-width="1.6" opacity=".45"/>
+            <path d="M19 33.5l9.5 9.5L45 22" fill="none" stroke="#b4677a" stroke-width="3.2"
                   stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <h3 class="done__title">Anfrage notiert.</h3>
@@ -680,18 +970,21 @@ html.rm [data-split] .wi{transform:none}
     <div class="wrap footer__grid" data-stagger>
       <div data-reveal>
         <a class="brand brand--lg" href="#top">
-          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 7l16 18M24 7L8 25" stroke="#c9a227" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg>
-          <span>Schnittwerk</span>
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M16 5c4.5 3.4 7 7 7 10.4a7 7 0 01-14 0C9 12 11.5 8.4 16 5z" fill="none" stroke="#b4677a" stroke-width="1.8"/>
+            <circle cx="16" cy="25" r="2" fill="#c9a06a"/>
+          </svg>
+          <span>Maison Lilou</span>
         </a>
-        <p class="footer__claim">Salon &amp; Barbier seit 2014.<br>Lindenstraße 14, 10969 Berlin.</p>
+        <p class="footer__claim">Damensalon für Haar &amp; Beauty seit 2011.<br>Bleibtreustraße 27, 10707 Berlin.</p>
       </div>
 
       <nav data-reveal aria-label="Seitenbereiche">
-        <h2 class="footer__h">Seite</h2>
+        <h2 class="footer__h">Salon</h2>
         <ul class="footer__list">
           <li><a class="ul" href="#leistungen">Leistungen</a></li>
           <li><a class="ul" href="#team">Team</a></li>
-          <li><a class="ul" href="#lookbook">Lookbook</a></li>
+          <li><a class="ul" href="#lookbook">Looks</a></li>
           <li><a class="ul" href="#termin">Termin</a></li>
         </ul>
       </nav>
@@ -700,7 +993,7 @@ html.rm [data-split] .wi{transform:none}
         <h2 class="footer__h">Folgen</h2>
         <ul class="footer__list">
           <li><a class="ul" href="#kontakt">Instagram</a></li>
-          <li><a class="ul" href="#kontakt">Facebook</a></li>
+          <li><a class="ul" href="#kontakt">Pinterest</a></li>
           <li><a class="ul" href="#kontakt">Newsletter</a></li>
         </ul>
       </nav>
@@ -716,7 +1009,7 @@ html.rm [data-split] .wi{transform:none}
     </div>
 
     <div class="wrap footer__base" data-reveal>
-      <p>© 2026 SCHNITTWERK — fiktive Demo-Website. Alle Namen, Preise und Stimmen sind erfunden.</p>
+      <p>© 2026 MAISON LILOU — fiktive Demo-Website. Alle Namen, Preise und Stimmen sind erfunden.</p>
       <p><a class="ul" href="#top">Nach oben</a></p>
     </div>
   </footer>
